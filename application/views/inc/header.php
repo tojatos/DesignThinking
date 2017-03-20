@@ -7,7 +7,7 @@
     <script src="<?= site_url('public/js/main.js') ?>"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprzątando</title>
+    <title>Design Thinking</title>
   </head>
   <body>
   <div class="blur"></div>
