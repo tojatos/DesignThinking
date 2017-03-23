@@ -7,11 +7,11 @@ class Verify extends MY_Controller
     {
         try {
             $this->load->model('Verify_model');
-            $notVerifiedEmails = $this->Verify_model->getNotVerifiedEmails();
-            if ($notVerifiedEmails == null) {
+            $not_verified_emails = $this->Verify_model->get_not_verified_emails();
+            if ($not_verified_emails == null) {
                 throw new Exception('Wszyscy użytkownicy są już zweryfikowani!');
             }
-            $email = $this->Verify_model->getEmailToVerify($notVerifiedEmails, $code);
+            $email = $this->Verify_model->get_email_to_verify($not_verified_emails, $code);
             if ($email == null) {
                 throw new Exception('Twój kod weryfikacyjny jest nieprawidłowy!');
             }
