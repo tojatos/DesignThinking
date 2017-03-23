@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 
 */
-//define('HASH_KEY', 'randomhashkey532');
+define('USER_TABLE', 'user');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

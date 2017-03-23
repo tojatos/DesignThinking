@@ -3,25 +3,28 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Verify_model extends MY_Model
 {
-    public function getNotVerifiedEmails()
+    public function get_not_verified_emails()
     {
-        $query = $this->db->from('users')->where('verified', false)->get();
+        $query = $this->db->from(USER_TABLE)->where('verified', false)->get();
         $users = $query->result();
         if ($users != null) {
-            $notVerifiedEmails = [];
+            $not_verified_emails = [];
             foreach ($users as $user) {
-                $notVerifiedEmails[] = $user->email;
+                $not_verified_emails[] = $user->email;
             }
 
-            return $notVerifiedEmails;
+            return $not_verified_emails;
         }
 
         return null;
     }
-    public function getEmailToVerify($notVerifiedEmails, $code)
+    /**
+     * compare not verified emails with code, if no match is found then returns null
+     */
+    public function get_email_to_verify($not_verified_emails, $code)
     {
-        foreach ($notVerifiedEmails as $email) {
-            if (sha1($email.HASH_KEY) == $code) {
+        foreach ($not_verified_emails as $email) {
+            if (sha1($email) == $code) {
                 return $email;
             }
         }
@@ -30,6 +33,6 @@ class Verify_model extends MY_Model
     }
     public function verify($email)
     {
-        $this->db->where('email', $email)->update('users', ['verified' => true]);
+        $this->db->where('email', $email)->update(USER_TABLE, ['verified' => true]);
     }
 }

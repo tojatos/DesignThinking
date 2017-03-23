@@ -69,7 +69,7 @@ class Register extends MY_Controller
         $this->email->subject('Design thinking - Weryfikacja');
         $this->email->message('
       <h1>Witamy nowego użytkownika!</h1>
-      Możesz potwierdzić swoją rejestrację klikając w <a href="'.site_url('Verify/').sha1($email.HASH_KEY).'">ten link</a>.<br><br>
+      Możesz potwierdzić swoją rejestrację klikając w <a href="'.site_url('Verify/').sha1($email).'">ten link</a>.<br><br>
       Jeżeli nie rejestrowałeś się na '.base_url().' zignoruj tę wiadomość.
       ');
         $this->email->send();
