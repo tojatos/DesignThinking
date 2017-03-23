@@ -5,6 +5,7 @@
   <div class="input"><label>Login:</label><input type="text" name="login" value="" placeholder="login"></div>
   <div class="input"><label>Hasło:</label><input type="password" name="password" value="" placeholder="password"></div>
   <div class="input"><label>Powtórz hasło:</label><input type="password" name="password_repeat" value="" placeholder="password"></div>
+  <div class="input"><label>Miasto:</label><input type="text" name="city" value="" placeholder="np. Opole"></div>
   <div class="input"><input type="submit" value="Zarejestruj"></div>
 </form>
 <a href="<?= base_url() ?>" class="center">Powrót do strony głównej</a>

@@ -10,16 +10,16 @@ class Login extends MY_Controller
     public function ajax_login()
     {
         try {
-            if ($this->session->isLogged) {
-                throw new Exception('Już jesteś zalogowany!');
-            }
-            $login = $this->input->post('login');
-            $password = $this->input->post('password');
+            $post_data = [
+              'login' => $this->input->post('login'),
+              'password' => $this->input->post('password'),
+            ];
 
-            $this->validate_ajax_login($login, $password);
+            $this->validate_ajax_login($post_data);
 
             $this->load->model('Login_model');
-            $try = $this->Login_model->login($login, $password);
+            $login_data = $post_data;
+            $try = $this->Login_model->login($login_data);
             if ($try !== null) {
                 throw new Exception($try);
             }
@@ -30,12 +30,15 @@ class Login extends MY_Controller
             echo $e->getMessage();
         }
     }
-    private function validate_ajax_login($login, $password)
+    private function validate_ajax_login($d)
     {
-      validateForm([
-      'login' => [$login, 50],
-      'hasło' => [$password, 50],
-      ]);
+        if ($this->session->isLogged) {
+            throw new Exception('Już jesteś zalogowany!');
+        }
+        validateForm([
+          'login' => [$d['login'], 50],
+          'hasło' => [$d['password'], 50],
+        ]);
     }
     public function ajax_logout()
     {

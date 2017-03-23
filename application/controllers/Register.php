@@ -10,18 +10,28 @@ class Register extends MY_Controller
     public function ajax_register()
     {
         try {
-            $email = $this->input->post('email');
-            $login = $this->input->post('login');
-            $password = $this->input->post('password');
-            $password_repeat = $this->input->post('password_repeat');
-
-            $this->validate_ajax_register($email, $login, $password, $password_repeat);
+            $post_data = [
+              'email' => $this->input->post('email'),
+              'login' => $this->input->post('login'),
+              'password' => $this->input->post('password'),
+              'password_repeat' => $this->input->post('password_repeat'),
+              'city' => $this->input->post('city'),
+            ];
+            $this->validate_ajax_register($post_data);
 
             $this->load->model('User_model');
-            $try = $this->User_model->createUser($login, $password, $email);
+            $user_data = [
+              'login' => $post_data['login'],
+              'password' => $post_data['password'],
+              'email' => $post_data['email'],
+              'city' => $post_data['city'],
+            ];
+            $try = $this->User_model->create_user($user_data);
+
             if ($try != null) {
                 throw new Exception($try);
             }
+
             //$this->sendVerifyEmail($email);
 
             echo '<h2>Pomyślnie zarejestrowano.</h2><br>';
@@ -31,20 +41,21 @@ class Register extends MY_Controller
             echo $e->getMessage();
         }
     }
-    private function validate_ajax_register($email, $login, $password, $password_repeat)
+    private function validate_ajax_register($d)
     {
         validateForm([
-        'e-mail' => [$email, 50],
-        'login' => [$login, 50],
-        'hasło' => [$password, 50],
-        'potwierdzenie hasła' => [$password_repeat, 50],
-    ]);
+        'e-mail' => [$d['email'], 50],
+        'login' => [$d['login'], 50],
+        'hasło' => [$d['password'], 50],
+        'potwierdzenie hasła' => [$d['password_repeat'], 50],
+        'miejscowość' => [$d['city'], 50],
+        ]);
 
-        if (!valid_email($email)) {
+        if (!valid_email($d['email'])) {
             throw new Exception('Wprowadzony e-mail jest nieprawidłowy!');
         }
 
-        if ($password != $password_repeat) {
+        if ($d['password'] != $d['password_repeat']) {
             throw new Exception('Hasło różni się od hasła powtórzonego!');
         }
     }

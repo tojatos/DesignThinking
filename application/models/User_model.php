@@ -1,38 +1,40 @@
 <?php
 
 defined('BASEPATH') or exit('No direct script access allowed');
-class User_model extends CI_model
+class User_model extends MY_Model
 {
-
-    public function createUser($login, $password, $email)
+    private $user_table = 'user';
+    /**
+     * Wkłada nowego użytkownika do bazy danych.
+     *
+     * @param [array] $user_data powinna zawierać klucze 'login', 'password', 'email', 'city'
+     */
+    public function create_user($user_data)
     {
         try {
-            $isEmail = $this->db->get_where('users', array('email' => $email), 1);
-            if ($isEmail->result() != null) {
-                throw new Exception('Taki e-mail już istnieje! Wpisz inny.<br>');
-            }
-            $isLogin = $this->db->get_where('users', array('login' => $login), 1);
-            if ($isLogin->result() != null) {
-                throw new Exception('Taki login już istnieje! Wpisz inny.<br>');
-            }
-            $data = array(
-              'login' => $login,
-              'password' => password_hash($password, PASSWORD_DEFAULT),
-              'email' => $email,
+            $this->validate_user_data($user_data);
+            $insert_data = [
+              'id_user' => $this->get_next_id($this->user_table),
+              'login' => $user_data['login'],
+              'password' => password_hash($user_data['password'], PASSWORD_DEFAULT),
+              'email' => $user_data['email'],
               'verified' => false,
-        );
-            $this->db->insert('users', $data);
+              'miejscowosc' => $user_data['city'],
+            ];
+            $this->db->insert($this->user_table, $insert_data);
         } catch (Exception $e) {
             return $e->getMessage();
         }
     }
-    public function getUser($login)
+    private function validate_user_data($d)
     {
-      $userData = $this->db->get_where('users', array('login' => $login), 1);
-      if ($userData->result() != null) {
-        return $userData->result()[0];
-      } else {
-        return null;
-      }
+        $email_exists = $this->db->get_where($this->user_table, ['email' => $d['email']], 1);
+        if ($email_exists->result() != null) {
+            throw new Exception('Taki e-mail już istnieje! Wpisz inny.<br>');
+        }
+        $login_exists = $this->db->get_where($this->user_table, ['login' => $d['login']], 1);
+        if ($login_exists->result() != null) {
+            throw new Exception('Taki login już istnieje! Wpisz inny.<br>');
+        }
     }
 }
