@@ -18,9 +18,6 @@ class Verify_model extends MY_Model
 
         return null;
     }
-    /**
-     * compare not verified emails with code, if no match is found then returns null
-     */
     public function get_email_to_verify($not_verified_emails, $code)
     {
         foreach ($not_verified_emails as $email) {

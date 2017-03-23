@@ -7,6 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 
 */
+<<<<<<< HEAD
+=======
+//define('HASH_KEY', 'randomhashkey532');
+>>>>>>> 47d745e2ff41822d42a846243e451c18a1a166a0
 define('USER_TABLE', 'user');
 /*
 |--------------------------------------------------------------------------
