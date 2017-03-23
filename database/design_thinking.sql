@@ -21,7 +21,7 @@ USE `design_thinking` ;
 -- Table `design_thinking`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `design_thinking`.`user` (
-  `id_users` INT(50) NOT NULL AUTO_INCREMENT,
+  `id_user` INT(50) NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(50) NOT NULL,
   `password` BINARY(60) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
