@@ -4,10 +4,11 @@
   <head>
     <link rel="stylesheet" href="<?= site_url('public/css/main.css') ?>">
     <script src="<?= site_url('public/js/jquery-3.1.1.min.js') ?>"></script>
+    <script src="<?= site_url('public/js/bootstrap.min.js') ?>"></script>
     <script src="<?= site_url('public/js/main.js') ?>"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Thinking</title>
+    <title>Młody ratownik</title>
   </head>
   <body>
   <div class="blur"></div>
