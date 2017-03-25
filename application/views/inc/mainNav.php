@@ -8,7 +8,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-        <a class="navbar-brand" href="<?= site_url() ?>">Strona główna</a>
+        <a class="navbar-brand" href="<?= site_url() ?>"><img src="public/images/logo.jpg" height="40px" width='200px'></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
