@@ -8,7 +8,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-        <a class="navbar-brand" href="#">Strona główna</a>
+        <a class="navbar-brand" href="<?= site_url() ?>">Strona główna</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,26 +16,25 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
+                <?php if ($this->session->isLogged): ?>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Panel ratownik <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">jakiś panel</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">jakiś inny panel</a></li>
                 </ul>
             </li>
-            <li><a href="#">Wyloguj się!</a></li>
+            <?php endif; ?>
+        <?php if (!$this->session->isLogged): ?>
+            <li><a href="<?= site_url('Register')?>">Zarejestruj się!</a></li>
+            <li><a href="<?= site_url('Login')?>">Zaloguj się!</a></li>
+        <?php else: ?>
+            <form class="logout_form" method="post">
+            <li><input type="submit" value="Wyloguj się"></li>
+            </form>
+        <?php endif; ?>
         </ul>
     </div>
 </nav>
 
-<a href="<?= site_url() ?>">Strona główna</a>
-<?php if (!$this->session->isLogged): ?>
-  <a href="<?= site_url('Register') ?>">Zarejestruj się</a>
-  <a href="<?= site_url('Login') ?>">Zaloguj się</a>
-<?php else: ?>
-  <form class="logout_form" method="post">
-    <input type="submit" value="Wyloguj się">
-  </form>
-<?php endif; ?>
+
