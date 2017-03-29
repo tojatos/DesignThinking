@@ -8,7 +8,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-        <a class="navbar-brand" href="<?= site_url() ?>"><img src="public/images/logo.jpg" height="40px" width='200px'></a>
+        <a class="navbar-brand" href="<?= site_url() ?>"><img src="public/images/logo.png" height="40px" width='200px'></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,17 +17,31 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <?php if ($this->session->isLogged): ?>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Panel ratownik <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" 
+                aria-expanded="false">Panel ratownika <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">jakiś panel</a></li>
+                    <li><a href="#">Kursy</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">jakiś inny panel</a></li>
+                    <li><a href="#">Egzaminy</a></li>
                 </ul>
             </li>
             <?php endif; ?>
         <?php if (!$this->session->isLogged): ?>
             <li><a href="<?= site_url('Register')?>">Zarejestruj się!</a></li>
             <li><a href="<?= site_url('Login')?>">Zaloguj się!</a></li>
+
+    <!--<div id="navbar" class="navbar-collapse collapse"
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div>-->
+
         <?php else: ?>
             <form class="logout_form" method="post">
             <li><input type="submit" value="Wyloguj się"></li>
