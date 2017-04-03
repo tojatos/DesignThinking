@@ -15,3 +15,5 @@
 <a href="<?= site_url('Kurs/1') ?>">Kurs 1</a>
 <a href="<?= site_url('Kurs/2') ?>">Kurs 2</a>
 <a href="<?= site_url('Kurs/3') ?>">Kurs 3</a>
+<a href="<?= site_url('Kurs/4') ?>">Kurs 4</a>
+<a href="<?= site_url('Kurs/5') ?>">Kurs 5</a>
