@@ -1,163 +1,208 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1    Database: design_thinking
--- ------------------------------------------------------
--- Server version	5.7.17-0ubuntu0.16.04.1-log
+-- Host: 127.0.0.1
+-- Czas generowania: 04 Kwi 2017, 23:05
+-- Wersja serwera: 10.1.10-MariaDB
+-- Wersja PHP: 5.6.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `kurs`
+-- Baza danych: `design_thinking`
 --
 
-DROP TABLE IF EXISTS `kurs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `kurs`
+--
+
 CREATE TABLE `kurs` (
-  `id_kurs` int(11) NOT NULL AUTO_INCREMENT,
-  `nazwa` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_kurs`)
+  `id_kurs` int(11) NOT NULL,
+  `nazwa` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `kurs`
+-- Zrzut danych tabeli `kurs`
 --
 
-LOCK TABLES `kurs` WRITE;
-/*!40000 ALTER TABLE `kurs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `kurs` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `kurs` (`id_kurs`, `nazwa`) VALUES
+(1, 'kurs1'),
+(2, 'kurs2'),
+(3, 'kurs3'),
+(4, 'kurs4'),
+(5, 'kurs5');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `odpowiedz`
+-- Struktura tabeli dla tabeli `odpowiedz`
 --
 
-DROP TABLE IF EXISTS `odpowiedz`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `odpowiedz` (
-  `id_odpowiedz` int(11) NOT NULL AUTO_INCREMENT,
+  `id_odpowiedz` int(11) NOT NULL,
   `litera` enum('A','B','C','D') NOT NULL,
   `tresc` varchar(45) NOT NULL,
-  `pytanie_id_pytanie` int(11) NOT NULL,
-  PRIMARY KEY (`id_odpowiedz`,`pytanie_id_pytanie`),
-  KEY `fk_odpowiedz_pytanie1_idx` (`pytanie_id_pytanie`),
-  CONSTRAINT `fk_odpowiedz_pytanie1` FOREIGN KEY (`pytanie_id_pytanie`) REFERENCES `pytanie` (`id_pytanie`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `pytanie_id_pytanie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `odpowiedz`
+-- Struktura tabeli dla tabeli `pytanie`
 --
 
-LOCK TABLES `odpowiedz` WRITE;
-/*!40000 ALTER TABLE `odpowiedz` DISABLE KEYS */;
-/*!40000 ALTER TABLE `odpowiedz` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pytanie`
---
-
-DROP TABLE IF EXISTS `pytanie`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pytanie` (
-  `id_pytanie` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pytanie` int(11) NOT NULL,
   `tresc` varchar(45) NOT NULL,
   `prawidlowa_odpowiedz` varchar(45) NOT NULL,
-  `kurs_id_kurs` int(11) NOT NULL,
-  PRIMARY KEY (`id_pytanie`,`kurs_id_kurs`),
-  KEY `fk_pytanie_kurs1_idx` (`kurs_id_kurs`),
-  CONSTRAINT `fk_pytanie_kurs1` FOREIGN KEY (`kurs_id_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `kurs_id_kurs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `pytanie`
+-- Struktura tabeli dla tabeli `user`
 --
 
-LOCK TABLES `pytanie` WRITE;
-/*!40000 ALTER TABLE `pytanie` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pytanie` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id_user` int(50) NOT NULL AUTO_INCREMENT,
+  `id_user` int(50) NOT NULL,
   `login` varchar(50) NOT NULL,
   `password` binary(60) NOT NULL,
   `email` varchar(50) NOT NULL,
   `verified` tinyint(1) NOT NULL,
-  `miejscowosc` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `miejscowosc` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Zrzut danych tabeli `user`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'tojatos','$2y$10$JuL52O179Aon.Wi2ivnXBOhLMNzU65PYmt5z8VIVVu3XpaqrlmrHq','tojatos@gmail.com',1,'Opole'),(2,'te','$2y$10$.FQKsjFnVioDaQ9z9.pbaO51CjE05S35kZSNKyF40lfJ8S5YICS/C','toj@ga.com',0,'op');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `user` (`id_user`, `login`, `password`, `email`, `verified`, `miejscowosc`) VALUES
+(1, 'tojatos', 0x243279243130244a754c35324f313739416f6e2e57693269766e58424f684c4d4e7a55363550596d74357a3856495656753358706171726c6d724871, 'tojatos@gmail.com', 1, 'Opole'),
+(2, 'te', 0x243279243130242e46514b736a466e56696f446151397a392e7062614f3531436a4530355333356b5a534e4b794634306c664a385335594943532f43, 'toj@ga.com', 0, 'op');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `uzytkownik_kurs`
+-- Struktura tabeli dla tabeli `uzytkownik_kurs`
 --
 
-DROP TABLE IF EXISTS `uzytkownik_kurs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `uzytkownik_kurs` (
-  `id_uzytkownik_kurs` int(11) NOT NULL AUTO_INCREMENT,
+  `id_uzytkownik_kurs` int(11) NOT NULL,
   `data_obejrzenia_kurs` varchar(45) NOT NULL,
   `data_zdania_egzamin` varchar(45) DEFAULT NULL,
   `egzamin_wynik` varchar(45) DEFAULT NULL,
-  `user_id_users` int(50) NOT NULL,
-  `kurs_id_kurs` int(11) NOT NULL,
-  PRIMARY KEY (`id_uzytkownik_kurs`,`user_id_users`,`kurs_id_kurs`),
-  KEY `fk_uzytkownik_kurs_user_idx` (`user_id_users`),
-  KEY `fk_uzytkownik_kurs_kurs1_idx` (`kurs_id_kurs`),
-  CONSTRAINT `fk_uzytkownik_kurs_kurs1` FOREIGN KEY (`kurs_id_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_uzytkownik_kurs_user` FOREIGN KEY (`user_id_users`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `user_id_user` int(50) NOT NULL,
+  `kurs_id_kurs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `uzytkownik_kurs`
+-- Zrzut danych tabeli `uzytkownik_kurs`
 --
 
-LOCK TABLES `uzytkownik_kurs` WRITE;
-/*!40000 ALTER TABLE `uzytkownik_kurs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `uzytkownik_kurs` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `uzytkownik_kurs` (`id_uzytkownik_kurs`, `data_obejrzenia_kurs`, `data_zdania_egzamin`, `egzamin_wynik`, `user_id_user`, `kurs_id_kurs`) VALUES
+(1, '2017-04-04 16:45:34', NULL, NULL, 1, 1);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indexes for table `kurs`
+--
+ALTER TABLE `kurs`
+  ADD PRIMARY KEY (`id_kurs`);
+
+--
+-- Indexes for table `odpowiedz`
+--
+ALTER TABLE `odpowiedz`
+  ADD PRIMARY KEY (`id_odpowiedz`,`pytanie_id_pytanie`),
+  ADD KEY `fk_odpowiedz_pytanie1_idx` (`pytanie_id_pytanie`);
+
+--
+-- Indexes for table `pytanie`
+--
+ALTER TABLE `pytanie`
+  ADD PRIMARY KEY (`id_pytanie`,`kurs_id_kurs`),
+  ADD KEY `fk_pytanie_kurs1_idx` (`kurs_id_kurs`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- Indexes for table `uzytkownik_kurs`
+--
+ALTER TABLE `uzytkownik_kurs`
+  ADD PRIMARY KEY (`id_uzytkownik_kurs`,`user_id_user`,`kurs_id_kurs`),
+  ADD KEY `fk_uzytkownik_kurs_user_idx` (`user_id_user`),
+  ADD KEY `fk_uzytkownik_kurs_kurs1_idx` (`kurs_id_kurs`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT dla tabeli `kurs`
+--
+ALTER TABLE `kurs`
+  MODIFY `id_kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT dla tabeli `odpowiedz`
+--
+ALTER TABLE `odpowiedz`
+  MODIFY `id_odpowiedz` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `pytanie`
+--
+ALTER TABLE `pytanie`
+  MODIFY `id_pytanie` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT dla tabeli `uzytkownik_kurs`
+--
+ALTER TABLE `uzytkownik_kurs`
+  MODIFY `id_uzytkownik_kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `odpowiedz`
+--
+ALTER TABLE `odpowiedz`
+  ADD CONSTRAINT `fk_odpowiedz_pytanie1` FOREIGN KEY (`pytanie_id_pytanie`) REFERENCES `pytanie` (`id_pytanie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ograniczenia dla tabeli `pytanie`
+--
+ALTER TABLE `pytanie`
+  ADD CONSTRAINT `fk_pytanie_kurs1` FOREIGN KEY (`kurs_id_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ograniczenia dla tabeli `uzytkownik_kurs`
+--
+ALTER TABLE `uzytkownik_kurs`
+  ADD CONSTRAINT `fk_uzytkownik_kurs_kurs1` FOREIGN KEY (`kurs_id_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_uzytkownik_kurs_user` FOREIGN KEY (`user_id_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2017-03-23 18:14:18
