@@ -5,11 +5,13 @@ class Kurs extends MY_Controller
 {
     public function index($id_kurs = 0)
     {
+        $view['mainNav'] = $this->loadMainNav();
         if ($id_kurs == 0) {
-            $this->showView('Kurs/index');
+            $view['content'] = $this->loadContent('Kurs/index');
         } else {
-            $this->showView('Kurs/kurs'.$id_kurs);
+            $view['content'] = $this->loadContent('Kurs/kurs'.$id_kurs);
         }
+        $this->showMainView($view);
     }
     public function ajax_finish_kurs()
     {
