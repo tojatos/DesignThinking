@@ -39,7 +39,8 @@
 	               		<hr />
 	               	</div>
 	            </div> 
-				<div class="main-login main-center">
+				<div class="main-login main-center col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2
+							col-sm-8 col-sm-offset-2 col-sx-8 col-sx-offset-1">
           <form class="login_form" method="post">						
 						<div class="form-group">
               <label for="login" class="cols-sm-2 control-label">Login</label>
