@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 		<div class="container">
 			<div class="row main">
 				<div class="panel-heading">
@@ -6,9 +6,9 @@
 	               		<h1 class="title">Zarejestruj się!</h1>
 	               		<hr />
 	               	</div>
-	            </div> 
+	            </div>
 				<div class="main-login main-center">
-          <form class="register_form" method="post">						
+          <form class="register_form" method="post">
 						<div class="form-group">
               <label for="login" class="cols-sm-2 control-label">Login</label>
 							<div class="cols-sm-10">
@@ -37,43 +37,8 @@
 									<input type="text" class="form-control" name="city" id="city"  placeholder="Wpisz miasto"/>
 								</div>
 							</div>
-						</div>						
-						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Hasło</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Wpisz hasło"/>
-								</div>
-							</div>
 						</div>
-									<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Hasło</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Wpisz hasło"/>
-								</div>
-							</div>
-						</div>
-									<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Hasło</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Wpisz hasło"/>
-								</div>
-							</div>
-						</div>
-									<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Hasło</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Wpisz hasło"/>
-								</div>
-							</div>
-						</div>
+
 									<div class="form-group">
 							<label for="password" class="cols-sm-2 control-label">Hasło</label>
 							<div class="cols-sm-10">
