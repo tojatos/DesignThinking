@@ -8,7 +8,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-        <a class="navbar-brand" href="<?= site_url() ?>"><img src="public/images/logo.png" height="40px" width='200px'></a>
+        <a class="navbar-brand" href="<?= site_url() ?>"><img src="<?= site_url() ?>public/images/logo.png" height="40px" width='200px'></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,5 +48,3 @@
         </ul>
     </div>
 </nav>
-
-
