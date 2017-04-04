@@ -16,7 +16,9 @@ class Kurs extends MY_Controller
     public function ajax_finish_kurs()
     {
         try {
-            $id_kurs = $this->input->post('kurs');
+            if(!$this->session->isLogged)
+            throw new Exception("Aby ukończyć kurs musisz się zalogować!");
+            $id_kurs = $this->input->post('kurs_id');
             $username = $this->session->user_name;
 
             $this->load->model('Kurs_model');
@@ -31,9 +33,9 @@ class Kurs extends MY_Controller
                 throw new Exception($try);
             }
 
-            echo '<h2>Pomyślnie zalogowano.</h2><br>';
+            echo '<h2>Potwierdzono ukończenie kursu.</h2><br>';
         } catch (Exception $e) {
-            echo '<h2>Logowanie nie powiodło się:</h2><br>';
+            echo '<h2>Potwierdzenie ukończenia kursu nie powiodło się:</h2><br>';
             echo $e->getMessage();
         }
     }
