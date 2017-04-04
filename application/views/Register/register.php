@@ -7,10 +7,11 @@
 	               		<hr />
 	               	</div>
 	            </div> 
-				<div class="main-login main-center">
+				<div class="main-login main-center col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2
+							col-sm-8 col-sm-offset-2 col-sx-8 col-sx-offset-1">
           <form class="register_form" method="post">						
 						<div class="form-group">
-              <label for="login" class="cols-sm-2 control-label">Login</label>
+              			<label for="login" class="cols-sm-2 control-label">Login</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -47,42 +48,7 @@
 								</div>
 							</div>
 						</div>
-									<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Hasło</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Wpisz hasło"/>
-								</div>
-							</div>
-						</div>
-									<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Hasło</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Wpisz hasło"/>
-								</div>
-							</div>
-						</div>
-									<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Hasło</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Wpisz hasło"/>
-								</div>
-							</div>
-						</div>
-									<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Hasło</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Wpisz hasło"/>
-								</div>
-							</div>
-						</div>
+
 
 						<div class="form-group">
 							<label for="password_repeat" class="cols-sm-2 control-label">Powtórz hasło</label>
