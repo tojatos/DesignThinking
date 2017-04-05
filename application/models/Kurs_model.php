@@ -34,4 +34,12 @@ class Kurs_model extends MY_Model
             throw new Exception('Już ukończyłeś ten kurs! :)<br>');
         }
     }
+    public function has_finihed_kurs($d)
+    {
+      $user_kurs_exists = $this->db->get_where(USER_KURS_TABLE, ['user_id_user' => $d['id_user'], 'kurs_id_kurs' => $d['id_kurs']], 1);
+      if ($user_kurs_exists->result() != null) {
+          return true;
+      }
+      return false;
+    }
 }

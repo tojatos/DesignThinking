@@ -32,7 +32,7 @@ class Login extends MY_Controller
     }
     private function validate_ajax_login($d)
     {
-        if ($this->session->isLogged) {
+        if ($this->session->is_logged) {
             throw new Exception('Już jesteś zalogowany!');
         }
         validateForm([

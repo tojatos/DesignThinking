@@ -16,7 +16,7 @@ class Kurs extends MY_Controller
     public function ajax_finish_kurs()
     {
         try {
-            if(!$this->session->isLogged)
+            if(!$this->session->is_logged)
             throw new Exception("Aby ukończyć kurs musisz się zalogować!");
             $id_kurs = $this->input->post('kurs_id');
             $username = $this->session->user_name;

@@ -15,7 +15,7 @@
 
         <ul class="nav navbar-nav navbar-left">
                 <li><a href="<?= site_url('Kurs')?>">Kursy</a></li>
-            <?php if ($this->session->isLogged): ?>
+            <?php if ($this->session->is_logged): ?>
                 <li><a href="<?= site_url('Egzamin')?>">Egzaminy</a></li>
             <?php endif; ?>
                 <li><a href="<?= site_url('Ranking')?>">Ranking</a></li>
@@ -23,7 +23,7 @@
 
 
         <ul class="nav navbar-nav navbar-right">
-        <?php if (!$this->session->isLogged): ?>
+        <?php if (!$this->session->is_logged): ?>
             <li><a href="<?= site_url('Register')?>">Zarejestruj się!</a></li>
             <li><a href="<?= site_url('Login')?>">Zaloguj się!</a></li>
 
