@@ -8,6 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 */
 define('USER_TABLE', 'user');
+define('KURS_TABLE', 'kurs');
+define('ODPOWIEDZ_TABLE', 'odpowiedz');
+define('PYTANIE_TABLE', 'pytanie');
+define('USER_KURS_TABLE', 'uzytkownik_kurs');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

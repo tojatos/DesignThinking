@@ -56,4 +56,5 @@ $(function () {
 	sendPostDataOnSubmit('.register_form', 'Register/ajax_register');
 	sendPostDataOnSubmit('.forgotten_password_form', 'Users/ajax_forgottenPassword', true);
 	sendPostDataOnSubmit('.change_password_form', 'Users/ajax_changePassword', true);
+	sendPostDataOnSubmit('.finish_kurs_form', 'Kurs/ajax_finish_kurs', true);
 });

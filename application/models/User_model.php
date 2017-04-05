@@ -36,4 +36,14 @@ class User_model extends MY_Model
             throw new Exception('Taki login już istnieje! Wpisz inny.<br>');
         }
     }
+    public function get_user_id($username)
+    {
+     $user_data = $this->db->get_where(USER_TABLE, array('login' => $username), 1);
+     if ($user_data->result() != null) {
+       return $user_data->result()[0]->id_user;
+     } else {
+       throw new Exception("Błąd w wyciąganiu ID użytkownika. Skontaktuj się z administratorem.");
+       return null;
+     }
+   }
 }
