@@ -1,19 +1,19 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<!-- <div class="container">
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-			<img src="#" class="img-responsive" alt="Image">
-			<img src="#" class="img-responsive" alt="Image">
+<div class="container col-xs-12 col-sm-10 col-md-10 col-lg-9
+				 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+				<div>
+			<a href="<?= site_url('Kurs/1') ?>"><img src="public/images/kurs.png" class="img-responsive" alt="Image"></a>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-			<img src="#" class="img-responsive" alt="Image">
-			<img src="#" class="img-responsive" alt="Image">
+						<div>
+			<a href="<?= site_url('Kurs/2') ?>"><img src="public/images/kurs.png" class="img-responsive" alt="Image"></a>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<img src="#" class="img-responsive" alt="Image">
+						<div>
+			<a href="<?= site_url('Kurs/3') ?>"><img src="public/images/kurs.png" class="img-responsive" alt="Image"></a>
 		</div>
-</div> -->
-<a href="<?= site_url('Kurs/1') ?>">Kurs 1</a>
-<a href="<?= site_url('Kurs/2') ?>">Kurs 2</a>
-<a href="<?= site_url('Kurs/3') ?>">Kurs 3</a>
-<a href="<?= site_url('Kurs/4') ?>">Kurs 4</a>
-<a href="<?= site_url('Kurs/5') ?>">Kurs 5</a>
+						<div>
+			<a href="<?= site_url('Kurs/4') ?>"><img src="public/images/kurs.png" class="img-responsive" alt="Image"></a>
+		</div>
+				<div>
+			<a href="<?= site_url('Kurs/5') ?>"><img src="public/images/kurs.png" class="img-responsive" alt="Image"></a>
+		</div>
+</div>
