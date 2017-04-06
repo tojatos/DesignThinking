@@ -6,6 +6,9 @@ class Egzamin extends MY_Controller
     public function index($id_egzamin = 0)
     {
         try {
+            $this->load->model('Kurs_model');
+            $this->load->model('User_model');
+
             if (!$this->session->is_logged) {
                 throw new Exception('Aby mieć dostęp do egzaminu musisz się <a href="'.site_url('Login').'">zalogować</a>!');
             }
@@ -14,7 +17,8 @@ class Egzamin extends MY_Controller
                 $view['content'] = $this->loadContent('Egzamin/index');
             } else {
                 $this->checkFinishState($id_egzamin);
-                $view['content'] = $this->loadContent('Egzamin/egzamin'.$id_egzamin);
+                $exam_content = $this->Kurs_model->getExamContent($id_egzamin);
+                $view['content'] = $this->loadContent('Egzamin/egzamin'.$id_egzamin, ['exam_content' => $exam_content]);
             }
             $this->showMainView($view);
         } catch (Exception $e) {
@@ -23,8 +27,6 @@ class Egzamin extends MY_Controller
     }
     private function checkFinishState($id_egzamin)
     {
-        $this->load->model('Kurs_model');
-        $this->load->model('User_model');
         $username = $this->session->user_name;
         $user_id = $this->User_model->get_user_id($username);
         $has_finished_kurs = $this->Kurs_model->has_finihed_kurs(['id_kurs' => $id_egzamin, 'id_user' => $user_id]);

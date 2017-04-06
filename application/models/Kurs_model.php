@@ -3,7 +3,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Kurs_model extends MY_Model
 {
-
     public function finish_kurs($user_kurs_data)
     {
         try {
@@ -36,10 +35,20 @@ class Kurs_model extends MY_Model
     }
     public function has_finihed_kurs($d)
     {
-      $user_kurs_exists = $this->db->get_where(USER_KURS_TABLE, ['user_id_user' => $d['id_user'], 'kurs_id_kurs' => $d['id_kurs']], 1);
-      if ($user_kurs_exists->result() != null) {
-          return true;
-      }
-      return false;
+        $user_kurs_exists = $this->db->get_where(USER_KURS_TABLE, ['user_id_user' => $d['id_user'], 'kurs_id_kurs' => $d['id_kurs']], 1);
+        if ($user_kurs_exists->result() != null) {
+            return true;
+        }
+
+        return false;
+    }
+    public function getExamContent($exam_id)
+    {
+        $query = $this->db->get_where(PYTANIE_TABLE, ['kurs_id_kurs' => $exam_id]);
+        if ($query->result() == null) {
+            throw new Exception('Ten egzamin nie ma pytań! Skontaktuj się z administratorem.');
+        }
+        $pytania = $query->result();
+        return $pytania;
     }
 }
