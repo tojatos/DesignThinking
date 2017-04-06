@@ -46,9 +46,22 @@ class Kurs_model extends MY_Model
     {
         $query = $this->db->get_where(PYTANIE_TABLE, ['kurs_id_kurs' => $exam_id]);
         if ($query->result() == null) {
-            throw new Exception('Ten egzamin nie ma pytań! Skontaktuj się z administratorem.');
+            throw new Exception('Egzamin '.$exam_id.' nie ma pytań! Skontaktuj się z administratorem.');
         }
         $pytania = $query->result();
+        foreach ($pytania as $key => $pytanie) {
+            $id_pytanie = $pytanie->id_pytanie;
+            $query = $this->db->get_where(ODPOWIEDZ_TABLE, ['pytanie_id_pytanie' => $id_pytanie]);
+            if ($query->result() == null) {
+                throw new Exception('Pytanie '.$id_pytanie.' nie ma odpowiedzi! Skontaktuj się z administratorem.');
+            }
+            $odpowiedzi = $query->result();
+            foreach ($odpowiedzi as $odpowiedz) {
+                $litera = $odpowiedz->litera;
+                $pytanie->odpowiedzi[$litera] = $odpowiedz->tresc;
+            }
+        }
+
         return $pytania;
     }
 }

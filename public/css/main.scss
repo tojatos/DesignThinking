@@ -1,15 +1,17 @@
 @import 'mini-reset';
 @import 'bootstrap-theme.min';
 @import 'bootstrap';
+
 html {
     cursor: default;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     position: relative;
     min-height: 100%;
+
     body {
-        margin: 0;
-        margin-bottom: 60px;
+        margin: 0 0 60px;
+
         a {
             text-decoration: none;
             color: rgb(0, 87, 255);
@@ -18,7 +20,6 @@ html {
                 text-decoration: underline;
             }
         }
-
     }
 
     .footer {
@@ -27,7 +28,8 @@ html {
         width: 100%;
         height: 60px;
         background-color: #f5f5f5;
-        p{
+
+        p {
             line-height: 60px;
             font-size: 18px;
             text-align: center;
@@ -35,8 +37,6 @@ html {
             margin: 0;
         }
     }
-
-
 
     .response {
         position: absolute;
@@ -83,12 +83,14 @@ html {
         height: 95vh;
         align-items: center;
     }
-
+    .hidden {
+      display: none;
+    }
 }
 
-    .p_rank{
-        font-size: 32px;
-        padding: 30px;
-        text-align: center;
-        font-family: 'Roboto';
-    }
+.p_rank {
+    font-size: 32px;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Roboto';
+}
