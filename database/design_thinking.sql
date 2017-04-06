@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 04 Kwi 2017, 23:05
+-- Czas generowania: 06 Kwi 2017, 15:17
 -- Wersja serwera: 10.1.10-MariaDB
 -- Wersja PHP: 5.6.19
 
@@ -55,6 +55,16 @@ CREATE TABLE `odpowiedz` (
   `pytanie_id_pytanie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Zrzut danych tabeli `odpowiedz`
+--
+
+INSERT INTO `odpowiedz` (`id_odpowiedz`, `litera`, `tresc`, `pytanie_id_pytanie`) VALUES
+(1, 'A', 'zielonego', 1),
+(2, 'B', 'czarnego', 1),
+(3, 'C', 'pomarańczowego', 1),
+(4, 'D', 'różowego', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -67,6 +77,13 @@ CREATE TABLE `pytanie` (
   `prawidlowa_odpowiedz` varchar(45) NOT NULL,
   `kurs_id_kurs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `pytanie`
+--
+
+INSERT INTO `pytanie` (`id_pytanie`, `tresc`, `prawidlowa_odpowiedz`, `kurs_id_kurs`) VALUES
+(1, 'Jaki kolor włosów ma Nami?', 'C', 1);
 
 -- --------------------------------------------------------
 
@@ -164,12 +181,12 @@ ALTER TABLE `kurs`
 -- AUTO_INCREMENT dla tabeli `odpowiedz`
 --
 ALTER TABLE `odpowiedz`
-  MODIFY `id_odpowiedz` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_odpowiedz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT dla tabeli `pytanie`
 --
 ALTER TABLE `pytanie`
-  MODIFY `id_pytanie` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pytanie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT dla tabeli `user`
 --
