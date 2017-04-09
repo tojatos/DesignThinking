@@ -11,7 +11,7 @@ class User extends MY_Controller
             $this->load->model('User_model');
 
             if (!$this->session->is_logged) {
-                throw new Exception('Aby mieć dostęp do swojego profilu musisz się <a href="'.site_url('Login').'">zalogować</a>!');
+                throw new Exception('Aby mieć dostęp do profilów użytkowników musisz się <a href="'.site_url('Login').'">zalogować</a>!');
             }
             $view['mainNav'] = $this->loadMainNav();
             if ($id_user == null) {
