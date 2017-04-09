@@ -6,36 +6,50 @@ class Egzamin_model extends MY_Model
     public function finish_exam($user_kurs_data)
     {
         try {
-            // $this->validate_user_kurs_data($user_kurs_data);
-          $update_data = [
+            $this->validate_user_kurs_data($user_kurs_data);
+            $update_data = [
             'data_zdania_egzamin' => date('Y-m-d H:i:s'),
-            'egzamin_wynik' => $user_kurs_data['wynik']
+            'egzamin_wynik' => $user_kurs_data['wynik'],
 
           ];
             $this->db
-          ->where([
-            'user_id_user' => $user_kurs_data['id_user'],
-            'kurs_id_kurs' => $user_kurs_data['id_kurs'],
-          ])
-          ->update(USER_KURS_TABLE, $update_data);
+              ->where([
+                'user_id_user' => $user_kurs_data['id_user'],
+                'kurs_id_kurs' => $user_kurs_data['id_kurs'],
+              ])
+              ->update(USER_KURS_TABLE, $update_data);
         } catch (Exception $e) {
             return $e->getMessage();
         }
     }
     private function validate_user_kurs_data($d)
     {
-        // $kurs_exists = $this->db->get_where(KURS_TABLE, ['id_kurs' => $d['id_kurs']], 1);
-      // if ($kurs_exists->result() == null) {
-      //     throw new Exception('Nie ma takiego kursu! Skontaktuj się z administratorem.<br>');
-      // }
-      // $user_exists = $this->db->get_where(USER_TABLE, ['id_user' => $d['id_user']], 1);
-      // if ($user_exists->result() == null) {
-      //     throw new Exception('Nie ma takiego użytkownika! Skontaktuj się z administratorem.<br>');
-      // }
-      // $user_kurs_exists = $this->db->get_where(USER_KURS_TABLE, ['user_id_user' => $d['id_user'], 'kurs_id_kurs' => $d['id_kurs']], 1);
-      // if ($user_kurs_exists->result() != null) {
-      //     throw new Exception('Już ukończyłeś ten kurs! :)<br>');
-      // }
+        $kurs_exists = $this->db->get_where(KURS_TABLE, ['id_kurs' => $d['id_kurs']], 1);
+        if ($kurs_exists->result() == null) {
+            throw new Exception('Nie ma takiego egzaminu! Skontaktuj się z administratorem.<br>');
+        }
+        $user_exists = $this->db->get_where(USER_TABLE, ['id_user' => $d['id_user']], 1);
+        if ($user_exists->result() == null) {
+            throw new Exception('Nie ma takiego użytkownika! Skontaktuj się z administratorem.<br>');
+        }
+        $user_kurs_exists = $this->db->get_where(USER_KURS_TABLE, ['user_id_user' => $d['id_user'], 'kurs_id_kurs' => $d['id_kurs']], 1);
+        if ($user_kurs_exists->result() != null) {
+            throw new Exception('Już ukończyłeś ten kurs! :)<br>');
+        }
+        $egzamin_wynik = $this->db
+          ->select('egzamin_wynik')
+          ->from(USER_KURS_TABLE)
+          ->where([
+            'user_id_user' => $d['id_user'],
+            'kurs_id_kurs' => $d['id_kurs'],
+          ])
+          ->get()
+          ->result()[0]->egzamin_wynik;
+        if ($egzamin_wynik != null) {
+            throw new Exception('Już ukończyłeś ten egzamin!');
+        }
+
+
     }
     public function getExamContent($exam_id)
     {
