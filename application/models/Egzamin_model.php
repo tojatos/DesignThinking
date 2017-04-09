@@ -36,20 +36,31 @@ class Egzamin_model extends MY_Model
         if ($user_kurs_exists->result() != null) {
             throw new Exception('Już ukończyłeś ten kurs! :)<br>');
         }
-        $egzamin_wynik = $this->db
-          ->select('egzamin_wynik')
-          ->from(USER_KURS_TABLE)
-          ->where([
-            'user_id_user' => $d['id_user'],
-            'kurs_id_kurs' => $d['id_kurs'],
-          ])
-          ->get()
-          ->result()[0]->egzamin_wynik;
+        $egzamin_wynik = $this->get_egzamin_wynik($d);
         if ($egzamin_wynik != null) {
             throw new Exception('Już ukończyłeś ten egzamin!');
         }
 
 
+    }
+    public function get_egzamin_wynik($d)
+    {
+      $query = $this->db
+        ->select('egzamin_wynik')
+        ->from(USER_KURS_TABLE)
+        ->where([
+          'user_id_user' => $d['id_user'],
+          'kurs_id_kurs' => $d['id_kurs'],
+        ])
+        ->get();
+        if($query->result() == null)
+        {
+          return null;
+        }
+        else {
+          $egzamin_wynik = $query->result()[0]->egzamin_wynik;
+        }
+        return $egzamin_wynik;
     }
     public function getExamContent($exam_id)
     {
