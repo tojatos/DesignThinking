@@ -7118,6 +7118,30 @@ html {
     align-items: center; }
   html .hidden {
     display: none; }
+  html .user_dropdown {
+    z-index: 9999;
+    display: none;
+    position: absolute;
+    padding: 10px;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    border: solid black 1px; }
+    html .user_dropdown a,
+    html .user_dropdown input[type="submit"] {
+      padding: 0;
+      color: #141414;
+      border: none;
+      background: inherit; }
+      html .user_dropdown a:hover,
+      html .user_dropdown input[type="submit"]:hover {
+        text-decoration: underline; }
+  html .user_dropdown_toggle {
+    padding: 10px; }
+    html .user_dropdown_toggle > img {
+      margin: 0 5px;
+      width: 50px;
+      height: 50px; }
 
 .p_rank {
   font-size: 32px;

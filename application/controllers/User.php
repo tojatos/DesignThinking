@@ -13,9 +13,12 @@ class User extends MY_Controller
             if (!$this->session->is_logged) {
                 throw new Exception('Aby mieć dostęp do profilów użytkowników musisz się <a href="'.site_url('Login').'">zalogować</a>!');
             }
+
+
             $view['mainNav'] = $this->loadMainNav();
+
             if ($id_user == null) {
-                throw new Exception('Nie ma takiego użytkownika!');
+								$id_user = $this->User_model->get_user_id($this->session->user_name);
             }
             $user_exists = $this->User_model->user_exists($id_user);
             if (!$user_exists) {

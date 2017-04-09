@@ -28,9 +28,13 @@
             <li><a href="<?= site_url('Login')?>">Zaloguj się!</a></li>
 
         <?php else: ?>
+          <span class="user_dropdown_toggle"><img src="" alt="Zdjęcie profilowe"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+          <div class="user_dropdown">
+            <a href="<?= site_url('User') ?>">Mój profil</a>
             <form class="logout_form" method="post">
-            <li><input type="submit" value="Wyloguj się"></li>
+            <li><input type="submit" value="Wyloguj"></li>
             </form>
+          </div>
         <?php endif; ?>
         </ul>
     </div>
