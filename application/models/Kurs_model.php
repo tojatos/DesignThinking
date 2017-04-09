@@ -42,5 +42,9 @@ class Kurs_model extends MY_Model
 
         return false;
     }
+    public function getNumberOfKurs()
+    {
+      return $this->db->get(KURS_TABLE)->num_rows();
+    }
 
 }
