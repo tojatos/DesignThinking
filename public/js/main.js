@@ -1,6 +1,28 @@
 var baseUrl = "http://localhost/DesignThinking/";
 /*
 |--------------------------------------------------------------------------
+| Navbar
+|--------------------------------------------------------------------------
+|
+*/
+$(document).on("click", ".user_dropdown_toggle", function toggle() {
+	$('.user_dropdown').toggle();
+
+});
+/*
+|--------------------------------------------------------------------------
+| Egzamin
+|--------------------------------------------------------------------------
+|
+*/
+$(document).on("click", ".next", function nextQuestion() {
+	let pytanie = $(this).parent();
+	pytanie.addClass('hidden');
+	pytanie.next().removeClass('hidden');
+
+});
+/*
+|--------------------------------------------------------------------------
 | Ajax
 |--------------------------------------------------------------------------
 |
@@ -57,4 +79,5 @@ $(function () {
 	sendPostDataOnSubmit('.forgotten_password_form', 'Users/ajax_forgottenPassword', true);
 	sendPostDataOnSubmit('.change_password_form', 'Users/ajax_changePassword', true);
 	sendPostDataOnSubmit('.finish_kurs_form', 'Kurs/ajax_finish_kurs', true);
+	sendPostDataOnSubmit('.egzamin_form', 'Egzamin/ajax_finish_exam', true);
 });

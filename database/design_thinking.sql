@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Czas generowania: 04 Kwi 2017, 23:05
--- Wersja serwera: 10.1.10-MariaDB
--- Wersja PHP: 5.6.19
+-- Host: localhost
+-- Generation Time: Apr 06, 2017 at 09:26 PM
+-- Server version: 5.7.17-0ubuntu0.16.04.1-log
+-- PHP Version: 7.0.13-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `design_thinking`
+-- Database: `design_thinking`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `kurs`
+-- Table structure for table `kurs`
 --
 
 CREATE TABLE `kurs` (
@@ -32,7 +32,7 @@ CREATE TABLE `kurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `kurs`
+-- Dumping data for table `kurs`
 --
 
 INSERT INTO `kurs` (`id_kurs`, `nazwa`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `kurs` (`id_kurs`, `nazwa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `odpowiedz`
+-- Table structure for table `odpowiedz`
 --
 
 CREATE TABLE `odpowiedz` (
@@ -55,10 +55,24 @@ CREATE TABLE `odpowiedz` (
   `pytanie_id_pytanie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `odpowiedz`
+--
+
+INSERT INTO `odpowiedz` (`id_odpowiedz`, `litera`, `tresc`, `pytanie_id_pytanie`) VALUES
+(1, 'A', 'zielonego', 1),
+(2, 'B', 'czarnego', 1),
+(3, 'C', 'pomarańczowego', 1),
+(4, 'D', 'różowego', 1),
+(5, 'A', 'Nie ta.', 2),
+(6, 'B', 'Trochę niżej.', 2),
+(7, 'C', 'Już prawie!', 2),
+(8, 'D', '<<< To ta odpowiedź! :)', 2);
+
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `pytanie`
+-- Table structure for table `pytanie`
 --
 
 CREATE TABLE `pytanie` (
@@ -68,10 +82,18 @@ CREATE TABLE `pytanie` (
   `kurs_id_kurs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `pytanie`
+--
+
+INSERT INTO `pytanie` (`id_pytanie`, `tresc`, `prawidlowa_odpowiedz`, `kurs_id_kurs`) VALUES
+(1, 'Jaki kolor włosów ma Nami?', 'C', 1),
+(2, 'Która odpowiedź jest prawiDłowa?', 'D', 1);
+
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -84,7 +106,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `email`, `verified`, `miejscowosc`) VALUES
@@ -94,7 +116,7 @@ INSERT INTO `user` (`id_user`, `login`, `password`, `email`, `verified`, `miejsc
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `uzytkownik_kurs`
+-- Table structure for table `uzytkownik_kurs`
 --
 
 CREATE TABLE `uzytkownik_kurs` (
@@ -107,14 +129,15 @@ CREATE TABLE `uzytkownik_kurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `uzytkownik_kurs`
+-- Dumping data for table `uzytkownik_kurs`
 --
 
 INSERT INTO `uzytkownik_kurs` (`id_uzytkownik_kurs`, `data_obejrzenia_kurs`, `data_zdania_egzamin`, `egzamin_wynik`, `user_id_user`, `kurs_id_kurs`) VALUES
-(1, '2017-04-04 16:45:34', NULL, NULL, 1, 1);
+(1, '2017-04-04 16:45:34', '2017-04-06 20:32:37', '100%', 1, 1),
+(2, '2017-04-06 19:35:19', NULL, NULL, 1, 2);
 
 --
--- Indeksy dla zrzutów tabel
+-- Indexes for dumped tables
 --
 
 --
@@ -156,48 +179,48 @@ ALTER TABLE `uzytkownik_kurs`
 --
 
 --
--- AUTO_INCREMENT dla tabeli `kurs`
+-- AUTO_INCREMENT for table `kurs`
 --
 ALTER TABLE `kurs`
   MODIFY `id_kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT dla tabeli `odpowiedz`
+-- AUTO_INCREMENT for table `odpowiedz`
 --
 ALTER TABLE `odpowiedz`
-  MODIFY `id_odpowiedz` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_odpowiedz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT dla tabeli `pytanie`
+-- AUTO_INCREMENT for table `pytanie`
 --
 ALTER TABLE `pytanie`
-  MODIFY `id_pytanie` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pytanie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT dla tabeli `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT dla tabeli `uzytkownik_kurs`
+-- AUTO_INCREMENT for table `uzytkownik_kurs`
 --
 ALTER TABLE `uzytkownik_kurs`
   MODIFY `id_uzytkownik_kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `odpowiedz`
+-- Constraints for table `odpowiedz`
 --
 ALTER TABLE `odpowiedz`
   ADD CONSTRAINT `fk_odpowiedz_pytanie1` FOREIGN KEY (`pytanie_id_pytanie`) REFERENCES `pytanie` (`id_pytanie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ograniczenia dla tabeli `pytanie`
+-- Constraints for table `pytanie`
 --
 ALTER TABLE `pytanie`
   ADD CONSTRAINT `fk_pytanie_kurs1` FOREIGN KEY (`kurs_id_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ograniczenia dla tabeli `uzytkownik_kurs`
+-- Constraints for table `uzytkownik_kurs`
 --
 ALTER TABLE `uzytkownik_kurs`
   ADD CONSTRAINT `fk_uzytkownik_kurs_kurs1` FOREIGN KEY (`kurs_id_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION,

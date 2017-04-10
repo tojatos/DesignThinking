@@ -10,7 +10,7 @@ class Login_model extends MY_Model
     {
         try {
             $this->validate_login_data($login_data);
-            $this->session->isLogged = true;
+            $this->session->is_logged = true;
             $this->session->user_name = $login_data['login'];
         } catch (Exception $e) {
             return $e->getMessage();
