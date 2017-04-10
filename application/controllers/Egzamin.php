@@ -18,7 +18,7 @@ class Egzamin extends MY_Controller
                 $view['content'] = $this->loadContent('Egzamin/index');
             } else {
                 $this->checkFinishState($id_egzamin);
-                $exam_content = $this->Egzamin_model->getExamContent($id_egzamin);
+                $exam_content = $this->Egzamin_model->get_exam_content($id_egzamin);
                 $view['content'] = $this->loadContent('Egzamin/egzamin_form', ['exam_content' => $exam_content]);
             }
             $this->showMainView($view);
@@ -46,21 +46,21 @@ class Egzamin extends MY_Controller
 
             $this->load->model('Egzamin_model');
             $this->load->model('User_model');
-            $this->load->model('Pytania_model');
+            $this->load->model('Questions_model');
 
-            $id_pytan = $this->Pytania_model->get_id_pytan($id_kurs);
-            $ilosc_pytan = count($id_pytan);
+            $question_ids = $this->Questions_model->get_question_ids($id_kurs);
+            $number_of_questions = count($question_ids);
 
             $wynik = 0;
-            foreach ($id_pytan as $id_pytanie) {
-                $post_odpowiedz = $this->input->post('pytanie_'.$id_pytanie);
-                $prawidlowa_odpowiedz = $this->Pytania_model->get_prawidlowa_odpowiedz($id_pytanie);
-                if($post_odpowiedz == $prawidlowa_odpowiedz)
+            foreach ($question_ids as $id_question) {
+                $post_answer = $this->input->post('question_'.$id_question);
+                $correct_answer_letter = $this->Questions_model->get_correct_answer_letter($id_question);
+                if($post_answer == $correct_answer_letter)
                 {
                   $wynik++;
                 }
             }
-            $srednia = ($wynik/$ilosc_pytan*100)."%";
+            $srednia = ($wynik/$number_of_questions*100);
             $id_user = $this->User_model->get_user_id($username);
             $user_kurs_data = [
               'id_kurs' => $id_kurs,

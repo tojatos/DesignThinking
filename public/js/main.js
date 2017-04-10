@@ -16,9 +16,9 @@ $(document).on("click", ".user_dropdown_toggle", function toggle() {
 |
 */
 $(document).on("click", ".next", function nextQuestion() {
-	let pytanie = $(this).parent();
-	pytanie.addClass('hidden');
-	pytanie.next().removeClass('hidden');
+	let question = $(this).parent();
+	question.addClass('hidden');
+	question.next().removeClass('hidden');
 
 });
 /*

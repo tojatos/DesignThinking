@@ -24,19 +24,19 @@ class User extends MY_Controller
             if (!$user_exists) {
                 throw new Exception('Nie ma takiego użytkownika!');
             }
-						$numberOfKurs = $this->Kurs_model->getNumberOfKurs();
-						$wyniki_egzaminow = [];
+						$numberOfKurs = $this->Kurs_model->get_number_of_kurs();
+						$exam_results = [];
 						for ($i=1; $i <= $numberOfKurs; $i++) {
 							$user_kurs_data = [
 								'id_kurs' => $i,
 	              'id_user' => $id_user,
 							];
-	            $egzamin_wynik = $this->Egzamin_model->get_egzamin_wynik($user_kurs_data);
-							$wyniki_egzaminow[$i] = $egzamin_wynik;
+	            $exam_result = $this->Egzamin_model->get_exam_result($user_kurs_data);
+							$exam_results[$i] = $exam_result;
 						}
 
 						$user_content = [
-							'wyniki_egzaminow' => $wyniki_egzaminow
+							'exam_results' => $exam_results
 						];
             $view['content'] = $this->loadContent('User/user', ['user' => $user_content]);
             $this->showMainView($view);

@@ -18,7 +18,7 @@ class User_model extends MY_Model
               'password' => password_hash($user_data['password'], PASSWORD_DEFAULT),
               'email' => $user_data['email'],
               'verified' => false,
-              'miejscowosc' => $user_data['city'],
+              'city' => $user_data['city'],
             ];
             $this->db->insert(USER_TABLE, $insert_data);
         } catch (Exception $e) {
