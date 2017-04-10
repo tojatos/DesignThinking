@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2017 at 09:26 PM
+-- Generation Time: Apr 10, 2017 at 07:57 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1-log
 -- PHP Version: 7.0.13-0ubuntu0.16.04.1
 
@@ -23,43 +23,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kurs`
+-- Table structure for table `answer`
 --
 
-CREATE TABLE `kurs` (
-  `id_kurs` int(11) NOT NULL,
-  `nazwa` varchar(45) NOT NULL
+CREATE TABLE `answer` (
+  `id_answer` int(11) NOT NULL,
+  `letter` varchar(45) NOT NULL,
+  `content` varchar(45) NOT NULL,
+  `fk_question` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `kurs`
+-- Dumping data for table `answer`
 --
 
-INSERT INTO `kurs` (`id_kurs`, `nazwa`) VALUES
-(1, 'kurs1'),
-(2, 'kurs2'),
-(3, 'kurs3'),
-(4, 'kurs4'),
-(5, 'kurs5');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `odpowiedz`
---
-
-CREATE TABLE `odpowiedz` (
-  `id_odpowiedz` int(11) NOT NULL,
-  `litera` enum('A','B','C','D') NOT NULL,
-  `tresc` varchar(45) NOT NULL,
-  `pytanie_id_pytanie` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `odpowiedz`
---
-
-INSERT INTO `odpowiedz` (`id_odpowiedz`, `litera`, `tresc`, `pytanie_id_pytanie`) VALUES
+INSERT INTO `answer` (`id_answer`, `letter`, `content`, `fk_question`) VALUES
 (1, 'A', 'zielonego', 1),
 (2, 'B', 'czarnego', 1),
 (3, 'C', 'pomarańczowego', 1),
@@ -72,21 +50,42 @@ INSERT INTO `odpowiedz` (`id_odpowiedz`, `litera`, `tresc`, `pytanie_id_pytanie`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pytanie`
+-- Table structure for table `kurs`
 --
 
-CREATE TABLE `pytanie` (
-  `id_pytanie` int(11) NOT NULL,
-  `tresc` varchar(45) NOT NULL,
-  `prawidlowa_odpowiedz` varchar(45) NOT NULL,
-  `kurs_id_kurs` int(11) NOT NULL
+CREATE TABLE `kurs` (
+  `id_kurs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pytanie`
+-- Dumping data for table `kurs`
 --
 
-INSERT INTO `pytanie` (`id_pytanie`, `tresc`, `prawidlowa_odpowiedz`, `kurs_id_kurs`) VALUES
+INSERT INTO `kurs` (`id_kurs`) VALUES
+(1),
+(2),
+(3),
+(4),
+(5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `question`
+--
+
+CREATE TABLE `question` (
+  `id_question` int(11) NOT NULL,
+  `content` varchar(45) NOT NULL,
+  `correct_answer_letter` varchar(1) NOT NULL,
+  `fk_kurs` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `question`
+--
+
+INSERT INTO `question` (`id_question`, `content`, `correct_answer_letter`, `fk_kurs`) VALUES
 (1, 'Jaki kolor włosów ma Nami?', 'C', 1),
 (2, 'Która odpowiedź jest prawiDłowa?', 'D', 1);
 
@@ -97,48 +96,53 @@ INSERT INTO `pytanie` (`id_pytanie`, `tresc`, `prawidlowa_odpowiedz`, `kurs_id_k
 --
 
 CREATE TABLE `user` (
-  `id_user` int(50) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `login` varchar(50) NOT NULL,
   `password` binary(60) NOT NULL,
   `email` varchar(50) NOT NULL,
   `verified` tinyint(1) NOT NULL,
-  `miejscowosc` varchar(50) NOT NULL
+  `city` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `login`, `password`, `email`, `verified`, `miejscowosc`) VALUES
-(1, 'tojatos', 0x243279243130244a754c35324f313739416f6e2e57693269766e58424f684c4d4e7a55363550596d74357a3856495656753358706171726c6d724871, 'tojatos@gmail.com', 1, 'Opole'),
-(2, 'te', 0x243279243130242e46514b736a466e56696f446151397a392e7062614f3531436a4530355333356b5a534e4b794634306c664a385335594943532f43, 'toj@ga.com', 0, 'op');
+INSERT INTO `user` (`id_user`, `login`, `password`, `email`, `verified`, `city`) VALUES
+(1, 'tojatos', 0x243279243130245a396d532e6a41774b66593077625059704b3853754f414848744a51546b73717037567970654e673737566e593653302e79796175, 'tojatos@gmail.com', 1, 'Opole');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `uzytkownik_kurs`
+-- Table structure for table `user_has_kurs`
 --
 
-CREATE TABLE `uzytkownik_kurs` (
-  `id_uzytkownik_kurs` int(11) NOT NULL,
-  `data_obejrzenia_kurs` varchar(45) NOT NULL,
-  `data_zdania_egzamin` varchar(45) DEFAULT NULL,
-  `egzamin_wynik` varchar(45) DEFAULT NULL,
-  `user_id_user` int(50) NOT NULL,
-  `kurs_id_kurs` int(11) NOT NULL
+CREATE TABLE `user_has_kurs` (
+  `id_user_has_kurs` int(11) NOT NULL,
+  `date_finish_kurs` date NOT NULL,
+  `date_finish_exam` date DEFAULT NULL,
+  `exam_result` int(11) DEFAULT NULL,
+  `fk_kurs` int(11) NOT NULL,
+  `fk_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `uzytkownik_kurs`
+-- Dumping data for table `user_has_kurs`
 --
 
-INSERT INTO `uzytkownik_kurs` (`id_uzytkownik_kurs`, `data_obejrzenia_kurs`, `data_zdania_egzamin`, `egzamin_wynik`, `user_id_user`, `kurs_id_kurs`) VALUES
-(1, '2017-04-04 16:45:34', '2017-04-06 20:32:37', '100%', 1, 1),
-(2, '2017-04-06 19:35:19', NULL, NULL, 1, 2);
+INSERT INTO `user_has_kurs` (`id_user_has_kurs`, `date_finish_kurs`, `date_finish_exam`, `exam_result`, `fk_kurs`, `fk_user`) VALUES
+(1, '2017-04-10', '2017-04-10', 50, 1, 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `answer`
+--
+ALTER TABLE `answer`
+  ADD PRIMARY KEY (`id_answer`),
+  ADD KEY `fk_answer_question1_idx` (`fk_question`);
 
 --
 -- Indexes for table `kurs`
@@ -147,18 +151,11 @@ ALTER TABLE `kurs`
   ADD PRIMARY KEY (`id_kurs`);
 
 --
--- Indexes for table `odpowiedz`
+-- Indexes for table `question`
 --
-ALTER TABLE `odpowiedz`
-  ADD PRIMARY KEY (`id_odpowiedz`,`pytanie_id_pytanie`),
-  ADD KEY `fk_odpowiedz_pytanie1_idx` (`pytanie_id_pytanie`);
-
---
--- Indexes for table `pytanie`
---
-ALTER TABLE `pytanie`
-  ADD PRIMARY KEY (`id_pytanie`,`kurs_id_kurs`),
-  ADD KEY `fk_pytanie_kurs1_idx` (`kurs_id_kurs`);
+ALTER TABLE `question`
+  ADD PRIMARY KEY (`id_question`),
+  ADD KEY `fk_question_kurs1_idx` (`fk_kurs`);
 
 --
 -- Indexes for table `user`
@@ -167,64 +164,54 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `uzytkownik_kurs`
+-- Indexes for table `user_has_kurs`
 --
-ALTER TABLE `uzytkownik_kurs`
-  ADD PRIMARY KEY (`id_uzytkownik_kurs`,`user_id_user`,`kurs_id_kurs`),
-  ADD KEY `fk_uzytkownik_kurs_user_idx` (`user_id_user`),
-  ADD KEY `fk_uzytkownik_kurs_kurs1_idx` (`kurs_id_kurs`);
+ALTER TABLE `user_has_kurs`
+  ADD PRIMARY KEY (`id_user_has_kurs`),
+  ADD KEY `fk_user_has_kurs_kurs1_idx` (`fk_kurs`),
+  ADD KEY `fk_user_has_kurs_user1_idx` (`fk_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `answer`
+--
+ALTER TABLE `answer`
+  MODIFY `id_answer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT for table `kurs`
 --
 ALTER TABLE `kurs`
   MODIFY `id_kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `odpowiedz`
+-- AUTO_INCREMENT for table `question`
 --
-ALTER TABLE `odpowiedz`
-  MODIFY `id_odpowiedz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `pytanie`
---
-ALTER TABLE `pytanie`
-  MODIFY `id_pytanie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `uzytkownik_kurs`
---
-ALTER TABLE `uzytkownik_kurs`
-  MODIFY `id_uzytkownik_kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `question`
+  MODIFY `id_question` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `odpowiedz`
+-- Constraints for table `answer`
 --
-ALTER TABLE `odpowiedz`
-  ADD CONSTRAINT `fk_odpowiedz_pytanie1` FOREIGN KEY (`pytanie_id_pytanie`) REFERENCES `pytanie` (`id_pytanie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `answer`
+  ADD CONSTRAINT `fk_answer_question1` FOREIGN KEY (`fk_question`) REFERENCES `question` (`id_question`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `pytanie`
+-- Constraints for table `question`
 --
-ALTER TABLE `pytanie`
-  ADD CONSTRAINT `fk_pytanie_kurs1` FOREIGN KEY (`kurs_id_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `question`
+  ADD CONSTRAINT `fk_question_kurs1` FOREIGN KEY (`fk_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `uzytkownik_kurs`
+-- Constraints for table `user_has_kurs`
 --
-ALTER TABLE `uzytkownik_kurs`
-  ADD CONSTRAINT `fk_uzytkownik_kurs_kurs1` FOREIGN KEY (`kurs_id_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_uzytkownik_kurs_user` FOREIGN KEY (`user_id_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `user_has_kurs`
+  ADD CONSTRAINT `fk_user_has_kurs_kurs1` FOREIGN KEY (`fk_kurs`) REFERENCES `kurs` (`id_kurs`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_user_has_kurs_user1` FOREIGN KEY (`fk_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

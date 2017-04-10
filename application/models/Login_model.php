@@ -18,7 +18,7 @@ class Login_model extends MY_Model
     }
     private function validate_login_data($d)
     {
-      $query = $this->db->get_where('user', ['login' => $d['login']], 1);
+      $query = $this->db->get_where(USER_TABLE, ['login' => $d['login']], 1);
       $users = $query->result();
       if ($users == null) {
           throw new Exception('Nieprawidłowe dane logowania.<br>');
