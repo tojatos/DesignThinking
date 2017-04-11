@@ -39,7 +39,7 @@ html {
     }
 
     .response {
-        position: absolute;
+        position: fixed;
         z-index: 9999;
         top: 15%;
         right: 0;
@@ -125,4 +125,23 @@ html {
     padding: 30px;
     text-align: center;
     font-family: 'Roboto';
+}
+
+.kurs{
+    text-align: center;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+    .kurs_inner{
+        margin-right: 50px;
+        margin-left: 50px;
+        margin-bottom: 100px;
+    }
+}
+u.pdk{
+    font-size: 20px;
+}
+
+.or_a{
+    margin: 0 30px; 
 }
