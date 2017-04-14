@@ -5,7 +5,9 @@ class Login extends MY_Controller
 {
     public function index()
     {
-        $this->showView('Login/login');
+        $view['mainNav'] = $this->loadMainNav();
+        $view['content'] = $this->loadContent('Login/index');
+        $this->showMainView($view);
     }
     public function ajax_login()
     {
