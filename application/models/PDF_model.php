@@ -5,23 +5,17 @@ class PDF_model extends MY_Model
 {
     public function create_cheat_sheet($user_name)
     {
-        try
-        {
             $user_id = $this->get_id($user_name);
             $this->verify_exams($user_id);
             $personal_data = $this->gather_data($user_id, $user_name);
             return json_encode($personal_data);
-        }
-        catch (Exception $e) 
-        {
-            return $e->getMessage();
-        }
+
     }
     private function verify_exams($id)
     {
         $query = $this->db->get_where(USER_KURS_TABLE, ['fk_user' => $id]);
         $exams = $query->result();
-        if(count($exams) != 4)
+        if(count($exams) < 5)
         {
             throw new Exception('Musisz ukończyć wszystkie egzaminy!');
         };

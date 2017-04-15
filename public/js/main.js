@@ -60,8 +60,18 @@ function downloadCheatSheet(handler, url, refresh = false) {
       url: baseUrl + url,
       type: 'POST',
       success: function (data) {
-        console.log(data);
-        generatePDF(JSON.parse(data));
+        if(data.substring(0, 7)==="[ERROR]")
+        {
+          console.log(data);
+          data = data.replace(/^(\[ERROR\])/,"");
+          console.log(data);
+          showResponse(data);
+        }
+        else{
+          data = data.replace(/^(\[ERROR\])/,"");
+          console.log(data);
+          generatePDF(JSON.parse(data));
+        }
       }
     });
   });
@@ -96,7 +106,7 @@ $(function () {
   sendPostDataOnSubmit('.finish_kurs_form', 'Kurs/ajax_finish_kurs', true);
   sendPostDataOnSubmit('.egzamin_form', 'Egzamin/ajax_finish_exam', true);
 
-  downloadCheatSheet('.PDF_form', 'PDF/generate_PDF', true)
+  downloadCheatSheet('.PDF_form', 'PDF/generate_PDF', true);
 });
 
 /*
@@ -107,8 +117,8 @@ $(function () {
 */
 
 function generatePDF(data) {
-  var name = data['name']
-  var date = data['date']
+  var name = data.name;
+  var date = data.date;
 
   var docDefinition = {
     content: [{
@@ -187,5 +197,5 @@ function generatePDF(data) {
 
   String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
-  }
+  };
 }
