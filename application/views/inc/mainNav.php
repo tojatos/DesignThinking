@@ -31,6 +31,8 @@
           <span class="user_dropdown_toggle"><img src="" alt="Zdjęcie profilowe"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
           <div class="user_dropdown">
             <a href="<?= site_url('User') ?>">Mój profil</a>
+            <form class="PDF_form" method="post">
+            <li><input type="submit" value="Ściągawka"></li>
             <form class="logout_form" method="post">
             <li><input type="submit" value="Wyloguj"></li>
             </form>
