@@ -62,9 +62,6 @@
 						<div class="form-group ">
 							<div><input class="btn btn-primary btn-lg btn-block login-button" type="submit" value="Zarejestruj"></div>
 						</div>
-						<div class="login-register">
-				            <a href="<?= base_url() ?>" class="center">Powrót do strony głównej</a>
-				         </div>
 					</form>
 				</div>
 			</div>

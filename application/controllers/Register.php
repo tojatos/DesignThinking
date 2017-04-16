@@ -5,7 +5,9 @@ class Register extends MY_Controller
 {
     public function index()
     {
-        $this->showView('Register/register');
+        $view['mainNav'] = $this->loadMainNav();
+        $view['content'] = $this->loadContent('Register/index');
+        $this->showMainView($view);
     }
     public function ajax_register()
     {
