@@ -3,5 +3,8 @@
     <p class="jumbotron p_rank">Ranking Ratowników</p>
     <?= $data ?>
 </div>
-<?php //var_dump($data); ?>
-
+<script>
+$( document ).ready(function() {
+    gradient_percent();
+});
+</script>

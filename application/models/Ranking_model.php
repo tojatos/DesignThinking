@@ -64,9 +64,11 @@ class Ranking_model extends MY_Model
         $template .= "<td>";
         foreach($exam_data[$person->name] as $exam_points)
         {
-            $template .= "<span>";
+            $template .= "<div class = 'exam_ranking_circle'>" ;
+            $template .= "<span class = 'exam_ranking_number'>";
             $template .= $exam_points->exam_result;
             $template .= "</span>";
+            $template .= "</div>";
         };
         $template .= "</td>";
         $template .= "</tr>";
