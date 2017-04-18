@@ -25,6 +25,14 @@ html {
 
     .navbar-default{
         background-image: linear-gradient(to bottom, #eef 0, #aac 100%);
+        li>.active {
+          background: #f11429;
+          color: #fff;
+          &:hover {
+            background: #f11429;
+            color: #d6d6d6
+          }
+        }
     }
 
     .footer {
@@ -168,11 +176,11 @@ u.pdk{
 }
 
 .or_a{
-    margin: 0 30px; 
+    margin: 0 30px;
 }
 
 .marg{
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
 
 .question{
