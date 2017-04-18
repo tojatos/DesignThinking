@@ -23,12 +23,10 @@ $(document).on("click", ".next", function nextQuestion() {
 });
 /*
 |--------------------------------------------------------------------------
-| Generowanie PDF'a
+| Ranking
 |--------------------------------------------------------------------------
 |
 */
-
-
 function gradient_percent()
 {
   var circles = $(".exam_ranking_circle");
@@ -39,6 +37,12 @@ function gradient_percent()
     $(circles[i]).css('background', 'linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0)' + precent + "%)")
   }
 }
+/*
+|--------------------------------------------------------------------------
+| Generowanie PDF'a
+|--------------------------------------------------------------------------
+|
+*/
 function generatePDF(data) {
 	var name = data.user_name;
 	var date = data.recent_exam_date;
@@ -148,6 +152,7 @@ function sendPostDataOnSubmit(handler, url, refresh = false) {
 	});
 }
 $(function() {
+	gradient_percent();
 	$('.accept-response').on("click", function() {
 		if ($(this).hasClass('refresh')) {
 			location.reload();

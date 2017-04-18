@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php $exam_results = $user["exam_results"]; ?>
 Wyniki egzaminów
-<table>
+<table class='table table-hover'>
 	<thead>
 		<th>Nazwa</th>
 		<th>Wynik</th>
