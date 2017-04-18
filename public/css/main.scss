@@ -3,18 +3,23 @@
 @import 'bootstrap';
 
 html {
+    position: relative;
+
+    min-height: 100%;
+
     cursor: default;
+
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    position: relative;
-    min-height: 100%;
 
     body {
         margin: 0 0 60px;
+
         background-color: #eeF;
 
         a {
             text-decoration: none;
+
             color: rgb(0, 87, 255);
 
             &:hover {
@@ -23,24 +28,38 @@ html {
         }
     }
 
-    .navbar-default{
+    .navbar-default {
         background-image: linear-gradient(to bottom, #eef 0, #aac 100%);
+
+        li > .active {
+            color: #fff;
+            background-image: linear-gradient(to bottom, #aae 0, #55a 100%);
+
+            &:hover {
+                color: #d6d6d6;
+                background-image: linear-gradient(to bottom, #77e 0, #55a 100%);
+            }
+        }
     }
 
     .footer {
         position: absolute;
         bottom: 0;
+
         width: 100%;
         height: 40px;
-        background-image: linear-gradient(to top, #eef 0, #aac 100%);
         margin-top: 20px;
 
+        background-image: linear-gradient(to top, #eef 0, #aac 100%);
+
         p {
-            line-height: 40px;
-            font-size: 15px;
-            text-align: center;
             height: 40px;
             margin: 0;
+
+            text-align: center;
+
+            font-size: 15px;
+            line-height: 40px;
         }
     }
 
@@ -50,25 +69,35 @@ html {
         top: 15%;
         right: 0;
         left: 0;
+
         display: none;
+
         max-width: 50%;
         min-height: 200px;
         max-height: 70%;
         margin: 0 auto;
         padding: 15px 30px 60px;
+
         color: #000;
         border-radius: 5px;
-        background: #fff;
+        background: #eef;
         box-shadow: 0 5px 23px -7px rgba(163, 185, 197, .77);
 
         .accept-response {
+            cursor: pointer;
             position: absolute;
             right: 0;
             bottom: 0;
             left: 0;
+
             width: 300px;
-            border-radius: 5px;
             margin: 5px auto;
+            padding: 10px;
+
+            text-align: center;
+
+            border-radius: 5px;
+            background-color: #aac;
         }
     }
 
@@ -78,15 +107,20 @@ html {
         top: 0;
         right: 0;
         left: 0;
+
         display: none;
+
         width: 100%;
         height: 100%;
+
         background: rgba(69, 77, 91, 0.6);
     }
 
     .center-screen {
         display: flex;
+
         height: 95vh;
+
         align-items: center;
     }
 
@@ -95,17 +129,22 @@ html {
     }
 
     .user_dropdown {
-        z-index: 9999;
-        display: none;
         position: absolute;
-        padding: 10px;
+        z-index: 9999;
         top: 60px;
         right: 20px;
-        background: #fff;
+
+        display: none;
+
+        padding: 10px;
+
         border: solid black 1px;
+        background: #fff;
+
         a,
         input[type="submit"] {
             padding: 0;
+
             color: #141414;
             border: none;
             background: inherit;
@@ -114,60 +153,92 @@ html {
                 text-decoration: underline;
             }
         }
-
     }
-    .user_dropdown_toggle{
-      padding: 10px;
-      >img{
-        margin: 0 5px;
-        width: 50px;
-        height: 50px;
-      }
+
+    .user_dropdown_toggle {
+        padding: 10px;
+
+        > img {
+            width: 50px;
+            height: 50px;
+            margin: 0 5px;
+        }
     }
 }
 
-div.exam_ranking_circle
-{
-    text-align: center;
+div.exam_ranking_circle {
     display: inline-block;
-    border-radius: 50%;
-    height: 50px;
-    line-height: 50px;
+
     width: 50px;
+    height: 50px;
     margin-right: 1px;
-    background: linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0) 200%)
+
+    text-align: center;
+
+    border: 1px solid black;
+    border-radius: 50%;
+    //background: linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0) 200%);
+
+    line-height: 50px;
 }
-span.exam_ranking_number
-{
+
+span.exam_ranking_number {
     display: inline-block;
+
     vertical-align: middle;
+
     line-height: normal;
 }
+
 .p_rank {
-    font-size: 32px;
     padding: 30px;
+
     text-align: center;
+
+    font-size: 32px;
 }
 
-.kurs{
-    text-align: center;
+.kurs {
     margin-right: 50px;
-    margin-left: 50px;
     margin-bottom: 100px;
-    .kurs_inner{
+    margin-left: 50px;
+
+    text-align: center;
+
+    .kurs_inner {
         margin-right: 50px;
-        margin-left: 50px;
         margin-bottom: 100px;
+        margin-left: 50px;
     }
 }
-u.pdk{
+u.pdk {
     font-size: 20px;
 }
 
-.or_a{
-    margin: 0 30px; 
+.or_a {
+    margin: 0 30px;
 }
 
-.marg{
-    margin-bottom: 30px; 
+.marg {
+    margin-bottom: 30px;
+}
+.egzamin_form{
+
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+  .question {
+      padding: 30px;
+
+      text-align: center;
+
+      font-size: 18px;
+  }
+
+  .option {
+
+    text-align: left;
+    font-size: 16px;
+    padding: 10px 0;
+  }
 }

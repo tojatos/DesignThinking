@@ -91,7 +91,7 @@ class Egzamin_model extends MY_Model
             throw new Exception('Musisz ukończyć wszystkie egzaminy!');
         }
         foreach ($exams as $exam) {
-          if ($exam->exam_result < 80) {
+          if ($exam->exam_result < TRESHOLD) {
               throw new Exception('Musisz zdać wszystkie egzaminy!');
           }
         }

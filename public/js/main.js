@@ -23,12 +23,10 @@ $(document).on("click", ".next", function nextQuestion() {
 });
 /*
 |--------------------------------------------------------------------------
-| Generowanie PDF'a
+| Ranking
 |--------------------------------------------------------------------------
 |
 */
-
-
 function gradient_percent()
 {
   var circles = $(".exam_ranking_circle");
@@ -36,9 +34,15 @@ function gradient_percent()
     var precent = circles[i].firstChild.innerHTML;
     if(precent == 100)
       precent *= 2;
-    $(circles[i]).css('background', 'linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0)' + precent + "%)")
+    $(circles[i]).css('background', 'linear-gradient(0deg, rgb(88, 178, 255) 0%,rgba(255,0,0,0)' + precent + "%)")
   }
 }
+/*
+|--------------------------------------------------------------------------
+| Generowanie PDF'a
+|--------------------------------------------------------------------------
+|
+*/
 function generatePDF(data) {
 	var name = data.user_name;
 	var date = data.recent_exam_date;
@@ -148,6 +152,7 @@ function sendPostDataOnSubmit(handler, url, refresh = false) {
 	});
 }
 $(function() {
+	gradient_percent();
 	$('.accept-response').on("click", function() {
 		if ($(this).hasClass('refresh')) {
 			location.reload();
@@ -158,10 +163,10 @@ $(function() {
 	sendPostDataOnSubmit('.login_form', 'Login/ajax_login', true);
 	sendPostDataOnSubmit('.logout_form', 'Login/ajax_logout', true);
 	sendPostDataOnSubmit('.register_form', 'Register/ajax_register');
-	sendPostDataOnSubmit('.forgotten_password_form', 'Users/ajax_forgottenPassword', true);
-	sendPostDataOnSubmit('.change_password_form', 'Users/ajax_changePassword', true);
 	sendPostDataOnSubmit('.finish_kurs_form', 'Kurs/ajax_finish_kurs', true);
 	sendPostDataOnSubmit('.egzamin_form', 'Egzamin/ajax_finish_exam', true);
+	sendPostDataOnSubmit('.forgotten_password_form', 'UserPassword/ajax_forgottenPassword', true);
+	sendPostDataOnSubmit('.change_password_form', 'UserPassword/ajax_changePassword', true);
 
 	downloadPDFOnSubmit('.PDF_form', 'PDF/ajax_get_PDF_data', true);
 });
