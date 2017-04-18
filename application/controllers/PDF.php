@@ -18,11 +18,13 @@ class PDF extends MY_Controller
             $user_id = $this->User_model->get_user_id($user_name);
             $this->Egzamin_model->verify_exams($user_id);
             $recent_exam_date = $this->Egzamin_model->get_recent_exam_finish_date($user_id);
-            $image = $this->PDF_model->get_image();
+            $image1 = $this->PDF_model->get_image1();
+            $image2 = $this->PDF_model->get_image2();
             $PDF_data = [
               'recent_exam_date' => $recent_exam_date,
               'user_name' => $user_name,
-              'image' => $image,
+              'image1' => $image1,
+              'image2' => $image2,
             ];
             echo json_encode($PDF_data);
         } catch (Exception $e) {

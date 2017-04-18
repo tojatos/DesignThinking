@@ -28,84 +28,53 @@ $(document).on("click", ".next", function nextQuestion() {
 |
 */
 
+
+function gradient_percent()
+{
+  var circles = $(".exam_ranking_circle");
+  for(var i = 0; i < circles.length; i++) {
+    var precent = circles[i].firstChild.innerHTML;
+    if(precent == 100)
+      precent *= 2;
+    $(circles[i]).css('background', 'linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0)' + precent + "%)")
+  }
+}
 function generatePDF(data) {
 	var name = data.user_name;
 	var date = data.recent_exam_date;
-	var image = data.image;
-
-	var docDefinition = {
-		content: [{
-				text: "Karta Młodego Ratownika\n",
-				fontSize: 18,
-				bold: true,
-				alignment: 'center',
-				margin: [0, 0, 0, 10]
-			},
-			{
-				image: image,
-				width: 220,
-				height: 50
-			},
-			{
-				text: name + " ukończył kurs" + " dnia: " + date,
-				fontSize: 14,
-				margin: [0, 10, 0, 20],
-				alignment: 'center',
-			},
-			{
-				text: "RKO:",
-				bold: true,
-				fontSize: 12,
-				margin: [0, 0, 0, 1]
-			},
-			{
-				fontSize: 10,
-				columns: [{
-						ul: [
-							"30 uciśnięć i 2 wdechy",
-							"udzielać",
-							"wykorzystać"
-						]
-					},
-					{
-						ul: [
-							"30 uciśnięć i 2 wdechy",
-							"udzielać",
-							"wykorzystać"
-						]
-					}
-				],
-			},
-			{
-				text: "RKO:",
-				bold: true,
-				fontSize: 12,
-				margin: [0, 5, 0, 1]
-			},
-			{
-				fontSize: 10,
-				columns: [{
-						ul: [
-							"30 uciśnięć i 2 wdechy",
-							"udzielać",
-							"wykorzystać"
-						]
-					},
-					{
-						ul: [
-							"30 uciśnięć i 2 wdechy",
-							"udzielać",
-							"wykorzystać"
-						]
-					}
-				],
-			},
-		],
-		pageSize: {
-			width: 325,
-			height: 204
-		},
-	};
+	var image1 = data.image1;
+	var image2 = data.image2;
+  var docDefinition = {
+    content: [{
+        text: "Karta Młodego Ratownika\n",
+        fontSize: 22,
+        bold: true,
+        alignment: 'center',
+        margin: [0, 15, 0, 10]
+      },
+      {
+        image: image1,
+        width: 320,
+        height: 80
+      },
+      {
+        text: name + " ukończył kurs" + " dnia: " + date,
+        fontSize: 18,
+        margin: [0, 15, 0, 0],
+        alignment: 'center',
+      },
+      {
+        image: image2,
+        width: 320,
+        height: 200
+      }
+    ],
+    pageSize: {
+      width: 325,
+      height: 204
+    },
+    pageMargins: 1
+  };
 	pdfMake.createPdf(docDefinition).download(name + '.pdf');
 
 	String.prototype.capitalize = function() {
