@@ -33,11 +33,11 @@ html {
 
         li > .active {
             color: #fff;
-            background: #f11429;
+            background-image: linear-gradient(to bottom, #aae 0, #55a 100%);
 
             &:hover {
                 color: #d6d6d6;
-                background: #f11429;
+                background-image: linear-gradient(to bottom, #77e 0, #55a 100%);
             }
         }
     }
