@@ -83,4 +83,35 @@ class Egzamin_model extends MY_Model
         'exam_id' => $exam_id,
       ];
     }
+    public function verify_exams($user_id)
+    {
+        $query = $this->db->get_where(USER_KURS_TABLE, ['fk_user' => $user_id]);
+        $exams = $query->result();
+        if (count($exams) < 5) {
+            throw new Exception('Musisz ukończyć wszystkie egzaminy!');
+        }
+        foreach ($exams as $exam) {
+          if ($exam->exam_result < TRESHOLD) {
+              throw new Exception('Musisz zdać wszystkie egzaminy!');
+          }
+        }
+    }
+    public function get_recent_exam_finish_date($user_id)
+    {
+      $query = $this->db->get_where(USER_KURS_TABLE, ['fk_user' => $user_id]);
+      $user_kurs_data = $query->result();
+      $dates = [];
+      foreach ($user_kurs_data as $user_kurs_datum) {
+        array_push($dates, $user_kurs_datum->date_finish_exam);
+      }
+      $max_seconds = 0;
+      foreach ($dates as $date) {
+          $cur_date = strtotime($date);
+          if ($cur_date > $max_seconds) {
+              $max_seconds = $cur_date;
+          }
+      }
+      $recent_date = date('d/m/Y', $max_seconds);
+      return $recent_date;
+    }
 }
