@@ -126,6 +126,23 @@ html {
     }
 }
 
+div.exam_ranking_circle
+{
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    height: 50px;
+    line-height: 50px;
+    width: 50px;
+    margin-right: 1px;
+    background: linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0) 200%)
+}
+span.exam_ranking_number
+{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
 .p_rank {
     font-size: 32px;
     padding: 30px;
