@@ -186,3 +186,22 @@ u.pdk{
     padding: 30px;
     text-align: left;
 }
+
+#scroll_top {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 70px; 
+    z-index: 99;
+    border: 2px solid;
+    outline: none;
+    background-color: #55a;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+#scroll_top:hover {
+    background-color: #aac; /* Add a dark-grey background on hover */
+}

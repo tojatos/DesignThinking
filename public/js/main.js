@@ -170,3 +170,25 @@ $(function() {
 
 	downloadPDFOnSubmit('.PDF_form', 'PDF/ajax_get_PDF_data', true);
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Scroll to top button
+|--------------------------------------------------------------------------
+|
+*/
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        document.getElementById("scroll_top").style.display = "block";
+    } else {
+        document.getElementById("scroll_top").style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+    document.documentElement.scrollTop = 0; // For IE and Firefox
+}

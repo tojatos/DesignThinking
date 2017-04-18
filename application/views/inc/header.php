@@ -17,3 +17,4 @@
   <div class="blur"></div>
   <div class="loading"></div>
   <div class="response"><div class="text"></div><div class="accept-response">Rozumiem</div></div>
+  <button onclick="topFunction()" id="scroll_top" title="Scroll To Top"><span class="glyphicon glyphicon-arrow-up"></span></button>
