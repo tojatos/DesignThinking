@@ -84,6 +84,7 @@ html {
         box-shadow: 0 5px 23px -7px rgba(163, 185, 197, .77);
 
         .accept-response {
+            cursor: pointer;
             position: absolute;
             right: 0;
             bottom: 0;
@@ -210,7 +211,6 @@ span.exam_ranking_number {
         margin-left: 50px;
     }
 }
-
 u.pdk {
     font-size: 20px;
 }
@@ -222,19 +222,23 @@ u.pdk {
 .marg {
     margin-bottom: 30px;
 }
+.egzamin_form{
 
-.question {
-    padding: 30px;
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+  .question {
+      padding: 30px;
 
-    text-align: center;
+      text-align: center;
 
-    font-size: 18px;
-}
+      font-size: 18px;
+  }
 
-.option {
-    padding: 30px;
+  .option {
 
     text-align: left;
-
     font-size: 16px;
+    padding: 10px 0;
+  }
 }
