@@ -6,7 +6,7 @@
       <tr>
         <th>Miejsce</th>
         <th>Nick</th>
-        <th>Punkty</th>
+        <th>Procent</th>
         <th>Egzamin</th>
       </tr>
     </thead>
@@ -17,7 +17,7 @@
           <td><?= $person->name ?></td>
           <td><?= $person->exam_result_sum ?></td>
           <?php foreach ($exam_data[$person->name] as $exam_points): ?>
-            <td><div class ='exam_ranking_circle'><span class ='exam_ranking_number'><?= $exam_points->exam_result ?></span></div></td>
+            <td><div class ='exam_ranking_circle'><span class ='exam_ranking_number'><?= ($exam_points->exam_result!=null) ? $exam_points->exam_result : 0 ?></span></div></td>
           <?php endforeach; ?>
         </tr>
       <?php endforeach; ?>
