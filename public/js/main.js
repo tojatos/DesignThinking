@@ -34,7 +34,7 @@ function gradient_percent()
     var precent = circles[i].firstChild.innerHTML;
     if(precent == 100)
       precent *= 2;
-    $(circles[i]).css('background', 'linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0)' + precent + "%)")
+    $(circles[i]).css('background', 'linear-gradient(0deg, rgb(88, 178, 255) 0%,rgba(255,0,0,0)' + precent + "%)")
   }
 }
 /*

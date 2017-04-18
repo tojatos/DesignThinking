@@ -7054,11 +7054,11 @@ button.close {
     display: none !important; } }
 /*# sourceMappingURL=bootstrap.css.map */
 html {
+  position: relative;
+  min-height: 100%;
   cursor: default;
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  position: relative;
-  min-height: 100%; }
+  font-size: 20px; }
   html body {
     margin: 0 0 60px;
     background-color: #eeF; }
@@ -7070,24 +7070,24 @@ html {
   html .navbar-default {
     background-image: linear-gradient(to bottom, #eef 0, #aac 100%); }
     html .navbar-default li > .active {
-      background: #f11429;
-      color: #fff; }
+      color: #fff;
+      background: #f11429; }
       html .navbar-default li > .active:hover {
-        background: #f11429;
-        color: #d6d6d6; }
+        color: #d6d6d6;
+        background: #f11429; }
   html .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 40px;
-    background-image: linear-gradient(to top, #eef 0, #aac 100%);
-    margin-top: 20px; }
+    margin-top: 20px;
+    background-image: linear-gradient(to top, #eef 0, #aac 100%); }
     html .footer p {
-      line-height: 40px;
-      font-size: 15px;
-      text-align: center;
       height: 40px;
-      margin: 0; }
+      margin: 0;
+      text-align: center;
+      font-size: 15px;
+      line-height: 40px; }
   html .response {
     position: fixed;
     z-index: 9999;
@@ -7110,11 +7110,11 @@ html {
       bottom: 0;
       left: 0;
       width: 300px;
-      border-radius: 5px;
       margin: 5px auto;
-      background-color: #aac;
+      padding: 10px;
       text-align: center;
-      padding: 10px; }
+      border-radius: 5px;
+      background-color: #aac; }
   html .blur {
     position: fixed;
     z-index: 9998;
@@ -7132,14 +7132,14 @@ html {
   html .hidden {
     display: none; }
   html .user_dropdown {
-    z-index: 9999;
-    display: none;
     position: absolute;
-    padding: 10px;
+    z-index: 9999;
     top: 60px;
     right: 20px;
-    background: #fff;
-    border: solid black 1px; }
+    display: none;
+    padding: 10px;
+    border: solid black 1px;
+    background: #fff; }
     html .user_dropdown a,
     html .user_dropdown input[type="submit"] {
       padding: 0;
@@ -7152,19 +7152,19 @@ html {
   html .user_dropdown_toggle {
     padding: 10px; }
     html .user_dropdown_toggle > img {
-      margin: 0 5px;
       width: 50px;
-      height: 50px; }
+      height: 50px;
+      margin: 0 5px; }
 
 div.exam_ranking_circle {
-  text-align: center;
   display: inline-block;
-  border-radius: 50%;
-  height: 50px;
-  line-height: 50px;
   width: 50px;
+  height: 50px;
   margin-right: 1px;
-  background: linear-gradient(0deg, #337ab7 0%, rgba(255, 0, 0, 0) 200%); }
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 50%;
+  line-height: 50px; }
 
 span.exam_ranking_number {
   display: inline-block;
@@ -7172,19 +7172,19 @@ span.exam_ranking_number {
   line-height: normal; }
 
 .p_rank {
-  font-size: 32px;
   padding: 30px;
-  text-align: center; }
+  text-align: center;
+  font-size: 32px; }
 
 .kurs {
-  text-align: center;
   margin-right: 50px;
+  margin-bottom: 100px;
   margin-left: 50px;
-  margin-bottom: 100px; }
+  text-align: center; }
   .kurs .kurs_inner {
     margin-right: 50px;
-    margin-left: 50px;
-    margin-bottom: 100px; }
+    margin-bottom: 100px;
+    margin-left: 50px; }
 
 u.pdk {
   font-size: 20px; }
@@ -7196,13 +7196,13 @@ u.pdk {
   margin-bottom: 30px; }
 
 .question {
-  font-size: 18px;
   padding: 30px;
-  text-align: center; }
+  text-align: center;
+  font-size: 18px; }
 
 .option {
-  font-size: 16px;
   padding: 30px;
-  text-align: left; }
+  text-align: left;
+  font-size: 16px; }
 
 /*# sourceMappingURL=main.css.map */
