@@ -12,6 +12,7 @@ define('KURS_TABLE', 'kurs');
 define('ANSWER_TABLE', 'answer');
 define('QUESTION_TABLE', 'question');
 define('USER_KURS_TABLE', 'user_has_kurs');
+define('PASS_CHANGE_REQUEST_TABLE', 'password_change_requests');
 define('TRESHOLD', 80);
 /*
 |--------------------------------------------------------------------------

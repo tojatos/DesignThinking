@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.4.15
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Czas generowania: 15 Kwi 2017, 00:24
--- Wersja serwera: 10.1.21-MariaDB
--- Wersja PHP: 7.1.1
+-- Host: localhost
+-- Czas generowania: 18 Kwi 2017, 20:22
+-- Wersja serwera: 5.6.34
+-- Wersja PHP: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `design_thinking`
+-- Baza danych: `tojatos_DesignThinking`
 --
 
 -- --------------------------------------------------------
@@ -26,12 +26,12 @@ SET time_zone = "+00:00";
 -- Struktura tabeli dla tabeli `answer`
 --
 
-CREATE TABLE `answer` (
+CREATE TABLE IF NOT EXISTS `answer` (
   `id_answer` int(11) NOT NULL,
   `letter` varchar(45) NOT NULL,
-  `content` varchar(45) NOT NULL,
+  `content` varchar(255) NOT NULL,
   `fk_question` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `answer`
@@ -66,9 +66,9 @@ INSERT INTO `answer` (`id_answer`, `letter`, `content`, `fk_question`) VALUES
 -- Struktura tabeli dla tabeli `kurs`
 --
 
-CREATE TABLE `kurs` (
+CREATE TABLE IF NOT EXISTS `kurs` (
   `id_kurs` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `kurs`
@@ -84,15 +84,27 @@ INSERT INTO `kurs` (`id_kurs`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `password_change_requests`
+--
+
+CREATE TABLE IF NOT EXISTS `password_change_requests` (
+  `id_password_change_requests` int(10) unsigned NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `code` varchar(25) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `question`
 --
 
-CREATE TABLE `question` (
+CREATE TABLE IF NOT EXISTS `question` (
   `id_question` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
   `correct_answer_letter` varchar(1) NOT NULL,
   `fk_kurs` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `question`
@@ -113,7 +125,7 @@ INSERT INTO `question` (`id_question`, `content`, `correct_answer_letter`, `fk_k
 -- Struktura tabeli dla tabeli `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id_user` int(11) NOT NULL,
   `login` varchar(50) NOT NULL,
   `password` binary(60) NOT NULL,
@@ -127,7 +139,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `email`, `verified`, `city`) VALUES
-(1, 'tojatos', 0x243279243130245a396d532e6a41774b66593077625059704b3853754f414848744a51546b73717037567970654e673737566e593653302e79796175, 'tojatos@gmail.com', 1, 'Opole');
+(1, 'tojatos', 0x243279243130245a396d532e6a41774b66593077625059704b3853754f414848744a51546b73717037567970654e673737566e593653302e79796175, 'tojatos@gmail.com', 1, 'Opole'),
+(2, 'tojato', 0x243279243130243671667239513863656f634b3667326d6345514e744f69475a35503262416949545262326e76682f7a565462725675744d4b345575, 'kontakt@krzysztofruczkowski.pl', 1, 'Oppeln');
 
 -- --------------------------------------------------------
 
@@ -135,7 +148,7 @@ INSERT INTO `user` (`id_user`, `login`, `password`, `email`, `verified`, `city`)
 -- Struktura tabeli dla tabeli `user_has_kurs`
 --
 
-CREATE TABLE `user_has_kurs` (
+CREATE TABLE IF NOT EXISTS `user_has_kurs` (
   `id_user_has_kurs` int(11) NOT NULL,
   `date_finish_kurs` date NOT NULL,
   `date_finish_exam` date DEFAULT NULL,
@@ -149,8 +162,11 @@ CREATE TABLE `user_has_kurs` (
 --
 
 INSERT INTO `user_has_kurs` (`id_user_has_kurs`, `date_finish_kurs`, `date_finish_exam`, `exam_result`, `fk_kurs`, `fk_user`) VALUES
-(1, '2017-04-10', '2017-04-10', 50, 1, 1),
-(2, '2017-04-15', '2017-04-15', 0, 4, 1);
+(1, '2017-04-10', '2017-04-10', 88, 1, 1),
+(2, '2017-04-15', NULL, NULL, 4, 1),
+(3, '2017-04-16', '2017-04-16', 50, 2, 1),
+(4, '2017-04-16', '2017-04-16', 100, 3, 1),
+(5, '2017-04-16', '2017-04-16', 100, 5, 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -168,6 +184,12 @@ ALTER TABLE `answer`
 --
 ALTER TABLE `kurs`
   ADD PRIMARY KEY (`id_kurs`);
+
+--
+-- Indexes for table `password_change_requests`
+--
+ALTER TABLE `password_change_requests`
+  ADD PRIMARY KEY (`id_password_change_requests`,`email`);
 
 --
 -- Indexes for table `question`
@@ -198,17 +220,22 @@ ALTER TABLE `user_has_kurs`
 -- AUTO_INCREMENT dla tabeli `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `id_answer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_answer` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT dla tabeli `kurs`
 --
 ALTER TABLE `kurs`
-  MODIFY `id_kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kurs` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT dla tabeli `password_change_requests`
+--
+ALTER TABLE `password_change_requests`
+  MODIFY `id_password_change_requests` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT dla tabeli `question`
 --
 ALTER TABLE `question`
-  MODIFY `id_question` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_question` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- Ograniczenia dla zrzutów tabel
 --

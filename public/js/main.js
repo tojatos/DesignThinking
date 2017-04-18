@@ -163,10 +163,10 @@ $(function() {
 	sendPostDataOnSubmit('.login_form', 'Login/ajax_login', true);
 	sendPostDataOnSubmit('.logout_form', 'Login/ajax_logout', true);
 	sendPostDataOnSubmit('.register_form', 'Register/ajax_register');
-	sendPostDataOnSubmit('.forgotten_password_form', 'Users/ajax_forgottenPassword', true);
-	sendPostDataOnSubmit('.change_password_form', 'Users/ajax_changePassword', true);
 	sendPostDataOnSubmit('.finish_kurs_form', 'Kurs/ajax_finish_kurs', true);
 	sendPostDataOnSubmit('.egzamin_form', 'Egzamin/ajax_finish_exam', true);
+	sendPostDataOnSubmit('.forgotten_password_form', 'UserPassword/ajax_forgottenPassword', true);
+	sendPostDataOnSubmit('.change_password_form', 'UserPassword/ajax_changePassword', true);
 
 	downloadPDFOnSubmit('.PDF_form', 'PDF/ajax_get_PDF_data', true);
 });
