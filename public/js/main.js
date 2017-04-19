@@ -170,3 +170,15 @@ $(function() {
 
 	downloadPDFOnSubmit('.PDF_form', 'PDF/ajax_get_PDF_data', true);
 });
+
+/*
+|--------------------------------------------------------------------------
+| Document ready
+|--------------------------------------------------------------------------
+|
+*/
+
+// $('.frame_kurs').mouseenter(function(){  stare = $(this).html(); 
+// 	$(this).html("Zobaczyłeś leżącego na ulicy mężczyznę. Co robisz? Uciekasz, pomagasz, a może nie wiesz co zrobić? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas nagłego zatrzymania krążenia.");   })
+
+// $('.frame_kurs').mouseleave(function(){  $(this).html(stare);   })

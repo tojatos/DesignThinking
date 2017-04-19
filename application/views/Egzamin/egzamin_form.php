@@ -2,7 +2,8 @@
 <?php $questions = $exam_content['questions']; ?>
 <?php $id_egzamin = $exam_content['exam_id']; ?>
 <?php shuffle($questions); ?>
-<form class="egzamin_form" action="" method="post">
+<form class="egzamin_form col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2
+							col-sm-8 col-sm-offset-2 col-sx-8 col-sx-offset-1" action="" method="post">
 <input type="hidden" name="kurs_id" value="<?= $id_egzamin ?>">
 <?php $last = count($questions)-1; ?>
 <?php $number_questions = 0; ?>
