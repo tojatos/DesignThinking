@@ -34,7 +34,7 @@ class Register extends MY_Controller
                 throw new Exception($try);
             }
 
-            //$this->sendVerifyEmail($email);
+            $this->sendVerifyEmail($post_data['email']);
 
             echo '<h2>Pomyślnie zarejestrowano.</h2><br>';
             echo 'Po potwierdzeniu wiadomości wysłanej na e-mail będzie można się <a href="'.site_url('Login').'">zalogować</a>.';
@@ -66,9 +66,9 @@ class Register extends MY_Controller
         $this->load->library('email');
         $config['mailtype'] = 'html';
         $this->email->initialize($config);
-        $this->email->from('noreply@designthinking', 'Verifier');
+        $this->email->from('noreply@mlodyratownik', 'Verifier');
         $this->email->to($email);
-        $this->email->subject('Design thinking - Weryfikacja');
+        $this->email->subject('Młody ratownik - Weryfikacja');
         $this->email->message('
       <h1>Witamy nowego użytkownika!</h1>
       Możesz potwierdzić swoją rejestrację klikając w <a href="'.site_url('Verify/').sha1($email).'">ten link</a>.<br><br>

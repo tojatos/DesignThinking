@@ -9,7 +9,7 @@
 <?php	foreach ($questions as $key=>$question): ?>
 <?php	shuffle_assoc($question->answers) ?>
 <?php	$number_questions++ ?>
-	<div class="question<?= ($key==0) ? : ' hidden"' ?>">
+	<div class="question<?= ($key==0) ? '' : ' hidden' ?>">
 		<h2 class="p_rank">Pytanie <?= $number_questions ?></h2>
 		<p class="question"><?= $question->content ?></p>
 		<?php foreach ($question->answers as $letter => $answer): ?>
