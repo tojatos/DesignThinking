@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="container">
-  <p class="jumbotron p_rank">Ranking Ratowników</p>
+  <p class="p_rank">Ranking Ratowników</p>
   <table class='table table-hover'>
     <thead>
       <tr>

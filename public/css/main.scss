@@ -20,7 +20,7 @@ html {
         a {
             text-decoration: none;
 
-            color: rgb(0, 87, 255);
+            color: #558;
 
             &:hover {
                 text-decoration: underline;
@@ -168,18 +168,14 @@ html {
 
 div.exam_ranking_circle {
     display: inline-block;
-
     width: 50px;
     height: 50px;
     margin-right: 1px;
-
     text-align: center;
-
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 50%;
     //background: linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0) 200%);
-
-    line-height: 50px;
+    line-height: 45px;
 }
 
 span.exam_ranking_number {
@@ -219,24 +215,46 @@ u.pdk {
     margin: 0 30px;
 }
 
-.marg {
+.frame_kurs1, .frame_kurs2, .frame_kurs3, .frame_kurs4, .frame_kurs5{
     margin-bottom: 30px;
-}
-.egzamin_form{
+    width: 100%;
+    height: 200px;
+    border: 4px solid;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;    
+    text-align: center;
+    font-size: 18px;
+    background-color: #ccf;
 
-    width: 500px;
-    margin: 0 auto;
+    transition-property: background;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+
+    .name_kurs{
+        font-size: 36px;       
+    }
+}
+
+.transition_kurs:hover{
+        background-color: #aae;
+    }
+
+
+
+.egzamin_form{
     border: 1px solid black;
+    background-color: #ddf;
+  
   .question {
       padding: 30px;
-
       text-align: center;
-
       font-size: 18px;
   }
 
   .option {
-
     text-align: left;
     font-size: 16px;
     padding: 10px 0;

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="container"><h1><u>Oparzenia</u></h1>
-<p><i>Oparzyłeśsię gotując obiad. Co robisz? Zastanawiasz się co zrobić, a może nie robisz nic? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas oparzeń .</i></p>
+<p><i>Oparzyłeś się gotując obiad. Co robisz? Zastanawiasz się co zrobić, a może nie robisz nic? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas oparzeń .</i></p>
 <div class="kurs_inner">
 <ol>
 <li><u class="pdk">Zadbaj o swoje bezpieczeństwo!</u></br> 
