@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <h1 class="p_rank">Kursy</h1>
-<div class="container col-xs-12 col-sm-10 col-md-10 col-lg-8
+<div class="container col-xs-12 col-sm-10 col-md-8 col-lg-8
 				 col-sm-offset-1 col-md-offset-2 col-lg-offset-2 ">
 	 <a href="<?= site_url('Kurs/1') ?>">
 		<div class="frame_kurs1 transition_kurs">
