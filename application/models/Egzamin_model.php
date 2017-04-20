@@ -58,6 +58,24 @@ class Egzamin_model extends MY_Model
         }
         return $exam_result;
     }
+    public function get_kurs_finish_state($d)
+    {
+      $query = $this->db
+        ->select('exam_result')
+        ->from(USER_KURS_TABLE)
+        ->where([
+          'fk_user' => $d['id_user'],
+          'fk_kurs' => $d['id_kurs'],
+        ])
+        ->get();
+        if($query->result() == null)
+        {
+          return false;
+        }
+        else {
+          return true;
+        }
+    }
     public function get_exam_content($exam_id)
     {
         $query = $this->db->get_where(QUESTION_TABLE, ['fk_kurs' => $exam_id]);

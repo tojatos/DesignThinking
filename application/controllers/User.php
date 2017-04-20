@@ -20,8 +20,10 @@ class User extends MY_Controller
                 throw new Exception('Nie ma takiego użytkownika!');
             }
             $exam_results = $this->get_exam_results($user_id);
+            $kurs_finish_states = $this->get_kurs_finish_states($user_id);
             $user_content = [
                               'exam_results' => $exam_results,
+                              'kurs_finish_states' => $kurs_finish_states,
                             ];
             $view['mainNav'] = $this->loadMainNav();
             $view['content'] = $this->loadContent('User/user', ['user' => $user_content]);
@@ -36,13 +38,28 @@ class User extends MY_Controller
         $exam_results = [];
         for ($i = 1; $i <= $number_of_kurs; ++$i) {
             $user_kurs_data = [
-          'id_kurs' => $i,
-          'id_user' => $user_id,
-        ];
+              'id_kurs' => $i,
+              'id_user' => $user_id,
+            ];
             $exam_result = $this->Egzamin_model->get_exam_result($user_kurs_data);
             $exam_results[$i] = $exam_result;
         }
 
         return $exam_results;
+    }
+    private function get_kurs_finish_states($user_id)
+    {
+        $number_of_kurs = $this->Kurs_model->get_number_of_kurs();
+        $kurs_finish_states = [];
+        for ($i = 1; $i <= $number_of_kurs; ++$i) {
+            $user_kurs_data = [
+              'id_kurs' => $i,
+              'id_user' => $user_id,
+            ];
+            $kurs_finish_state = $this->Egzamin_model->get_kurs_finish_state($user_kurs_data);
+            $kurs_finish_states[$i] = $kurs_finish_state;
+        }
+
+        return $kurs_finish_states;
     }
 }
