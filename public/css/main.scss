@@ -227,16 +227,42 @@ u.pdk {
     justify-content: center;    
     text-align: center;
     font-size: 18px;
-    background-color: #ccf;
-
     transition-property: background;
     transition-duration: 1s;
     transition-timing-function: linear;
 
+
     .name_kurs{
-        font-size: 36px;       
+        font-size: 36px;     
     }
 }
+
+.frame_kurs1{
+    background: url("../images/tlo1.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+.frame_kurs2{
+    background: url("../images/tlo2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.frame_kurs3{
+    background: url("../images/tlo3.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+.frame_kurs4{
+    background: url("../images/tlo4.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+.frame_kurs5{
+    background: url("../images/tlo5.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
 
 .transition_kurs:hover{
         background-color: #aae;
@@ -260,3 +286,4 @@ u.pdk {
     padding: 10px 0;
   }
 }
+

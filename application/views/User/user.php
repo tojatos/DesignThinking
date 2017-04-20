@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php $exam_results = $user["exam_results"]; ?>
 <div class="container">
-<h1 class="jumbotron p_rank">Wyniki egzaminów</h1>
+<h1 class="p_rank">Wyniki egzaminów</h1>
 <table class='table table-hover'>
 	<thead>
 		<th>Nazwa</th>
