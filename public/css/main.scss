@@ -14,26 +14,25 @@ html {
 
     body {
         margin: 0 0 60px;
-
+        background: url(../images/bgimg.png);
         background-color: #eeF;
 
         a {
             text-decoration: none;
-
-            color: #558;
+            
+            color: #55a;
 
             &:hover {
                 text-decoration: underline;
             }
         }
     }
-
+        
     .navbar-default {
-        background-image: linear-gradient(to bottom, #eef 0, #aac 100%);
-
+        background-image: linear-gradient(to bottom, #fff 0, #aae 100%);
         li > .active {
             color: #fff;
-            background-image: linear-gradient(to bottom, #aae 0, #55a 100%);
+            background-image: linear-gradient(to bottom, #aaf 0, #55a 100%);
 
             &:hover {
                 color: #d6d6d6;
@@ -174,7 +173,6 @@ div.exam_ranking_circle {
     text-align: center;
     border: 2px solid black;
     border-radius: 50%;
-    //background: linear-gradient(0deg, #337ab7 0%,rgba(255,0,0,0) 200%);
     line-height: 45px;
 }
 
@@ -227,10 +225,8 @@ u.pdk {
     justify-content: center;    
     text-align: center;
     font-size: 18px;
-    transition-property: background;
-    transition-duration: 1s;
-    transition-timing-function: linear;
-
+    text-decoration: none;
+    color: #669;
 
     .name_kurs{
         font-size: 36px;     
@@ -264,12 +260,6 @@ u.pdk {
 }
 
 
-.transition_kurs:hover{
-        background-color: #aae;
-    }
-
-
-
 .egzamin_form{
     border: 1px solid black;
     background-color: #ddf;
@@ -287,3 +277,4 @@ u.pdk {
   }
 }
 
+    

@@ -10,6 +10,7 @@ class Ranking_model extends MY_Model
         foreach ($general_data as $name) {
             $exam_data[$name->name] = $this->gather_exam_data($name->name);
         }
+        $this->sort_by_exam_points($general_data);
         $data = [
           'general_data' => $general_data,
           'exam_data' => $exam_data,
@@ -17,26 +18,37 @@ class Ranking_model extends MY_Model
 
         return $data;
     }
+    private function sort_by_exam_points(&$general_data)
+    {
+      function cmp($a, $b)
+      {
+          return strcmp($a->exam_result_sum, $b->exam_result_sum);
+      }
+
+      usort($general_data, 'cmp');
+    }
     private function gather_general_data()
     {
-        $this->db->select('SUM(user_has_kurs.exam_result) AS exam_result_sum, user.login AS name, user.city AS place');
-        $this->db->from('user_has_kurs');
-        $this->db->join('user', 'user_has_kurs.fk_user = user.id_user');
-        //$this->db->where('user_has_kurs.exam_result > 80');
+        $this->db->select('SUM('.USER_KURS_TABLE.'.exam_result) AS exam_result_sum');
+        $this->db->select(USER_TABLE.'.login AS name');
+        $this->db->select(USER_TABLE.'.city AS place');
+        $this->db->from(USER_KURS_TABLE);
+        $this->db->join(USER_TABLE, USER_KURS_TABLE.'.fk_user = user.id_user');
+        //$this->db->where(USER_TABLE.'_has_kurs.exam_result > 80');
         $this->db->group_by('name');
+        $this->db->group_by('city');
         $query = $this->db->get();
 
         return $query->result();
     }
     private function gather_exam_data($name)
     {
-        $this->db->select('user_has_kurs.exam_result AS exam_result');
-        $this->db->from('user_has_kurs');
-        $this->db->join('user', 'user_has_kurs.fk_user = user.id_user');
-        $this->db->where('user.login', $name);
+        $this->db->select(USER_KURS_TABLE.'.exam_result AS exam_result');
+        $this->db->from(USER_KURS_TABLE);
+        $this->db->join(USER_TABLE.'', USER_KURS_TABLE.'.fk_user = user.id_user');
+        $this->db->where(USER_TABLE.'.login', $name);
         $query = $this->db->get();
 
         return $query->result();
     }
-
 }
