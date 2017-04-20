@@ -52,12 +52,12 @@ $('.frame_kurs3').mouseenter(function(){  stare = $(this).html();
 $('.frame_kurs3').mouseleave(function(){  $(this).html(stare);   })
 
 $('.frame_kurs4').mouseenter(function(){  stare = $(this).html(); 
-	$(this).html("Dziś– kiedy AED (automatyczny elektryczny defibrylator) jest dostępny dosyćczęsto postanowiliśmy przybliżyć Ci zasadę jego użycia, tak naprawdę bardzo prostą zasadę– znajdź i uruchom.");   })
+	$(this).html("Dziś– kiedy AED (automatyczny elektryczny defibrylator) jest dostępny dosyć często postanowiliśmy przybliżyć Ci zasadę jego użycia, tak naprawdę bardzo prostą zasadę - znajdź i uruchom.");   })
 
 $('.frame_kurs4').mouseleave(function(){  $(this).html(stare);   })
 
 $('.frame_kurs5').mouseenter(function(){  stare = $(this).html(); 
-	$(this).html("Razem z rodziną spożywasz posiłek. Nagle jeden z twoich bliskich zaczyna się zaczyna się dusić– okazuje się iż masz do czynienia z zadławieniem. Co robisz ? Pomagasz, zastanawiasz się co zrobić, a może zaczynasz działać ? Ten kurs nauczy Cię jak postępować w takiej sytuacji!");   })
+	$(this).html("Razem z rodziną spożywasz posiłek. Nagle jeden z twoich bliskich zaczyna się zaczyna się dusić - okazuje się iż masz do czynienia z zadławieniem. Co robisz ? Pomagasz, zastanawiasz się co zrobić, a może zaczynasz działać? Ten kurs nauczy Cię jak postępować w takiej sytuacji!");   })
 
 $('.frame_kurs5').mouseleave(function(){  $(this).html(stare);   })
 </script>

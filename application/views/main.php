@@ -3,6 +3,6 @@
 		<div class="jumbotron">
 				<h1>Witaj młody ratowniku</h1>
 				<p>tu zaczynasz swoją przygodę z ratownictwem</p>
-				<p><a class="btn btn-primary btn-lg" href="#" role="button">Rozpocznij wprowadzenie</a></p>
+				<p><a class="btn btn-primary btn-lg" href="<?= site_url('Kurs') ?>" role="button">Przejdź do kursów</a></p>
 		</div>
 </div>

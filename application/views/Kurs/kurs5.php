@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="container"><h1><u>Zadławienia</u></h1>
 <p><i>
-    Razem z rodziną spożywasz posiłek. Nagle jeden z twoich bliskich zaczyna się zaczyna się dusić– okazuje się iż masz do czynienia z zadławieniem. Co robisz ? Pomagasz, zastanawiasz się co zrobić, a może zaczynasz działać ? Ten kurs nauczy Cię jak postępować w takiej sytuacji!
+    Razem z rodziną spożywasz posiłek. Nagle jeden z twoich bliskich zaczyna się zaczyna się dusić - okazuje się iż masz do czynienia z zadławieniem. Co robisz? Pomagasz, zastanawiasz się co zrobić, a może zaczynasz działać? Ten kurs nauczy Cię jak postępować w takiej sytuacji!
 </i></p>
 <div class="kurs_inner">
 <ol>

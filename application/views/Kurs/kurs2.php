@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed');?>
 <div class="container"><h1><u>Oparzenia</u></h1>
 <p><i>Oparzyłeś się gotując obiad. Co robisz? Zastanawiasz się co zrobić, a może nie robisz nic? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas oparzeń .</i></p>
 <div class="kurs_inner">
@@ -29,5 +29,3 @@
 	<input type="submit" value="Zakończ kurs 2">
 </form>
 </div>
-
-
