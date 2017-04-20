@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 18 Kwi 2017, 22:45
+-- Czas generowania: 21 Kwi 2017, 01:12
 -- Wersja serwera: 10.1.21-MariaDB
 -- Wersja PHP: 7.1.1
 
@@ -169,7 +169,25 @@ INSERT INTO `answer` (`id_answer`, `letter`, `content`, `fk_question`) VALUES
 (150, 'C', 'Resuscytację krążeniowo oddechową', 43),
 (151, 'A', 'W momencie przybycia do szpitala', 44),
 (152, 'B', 'W obecności rodziny', 44),
-(153, 'C', 'Jak najwcześniej', 44);
+(153, 'C', 'Jak najwcześniej', 44),
+(154, 'A', '5', 45),
+(155, 'B', '10', 45),
+(156, 'C', '7', 45),
+(157, 'A', '5', 46),
+(158, 'B', '10', 46),
+(159, 'C', '7', 46),
+(160, 'A', 'Wzywasz pogotowie i rozpoczynasz RKO', 47),
+(161, 'B', 'Wzywasz pogotowie i układasz poszkodowanego w pozycji bocznej ustalonej', 47),
+(162, 'C', 'Kontynuujesz uciśnięcia nadbrzusza', 47),
+(163, 'A', 'Nie, od razu przechodzę do uciśnięć i wdechów', 48),
+(164, 'B', 'Nie, układam poszkodowanego w pozycji bocznej ustalonej', 48),
+(165, 'C', 'Tak, a następnie rozpoczynam uciskanie i wdechy ratownicze', 48),
+(166, 'A', 'Zajrzeć do jamy ustnej i sprawdzić czy ciało obce nie przesunęło się do niej', 49),
+(167, 'B', 'Wykonać dodatkowe 3 wdechy', 49),
+(168, 'C', 'Nie wykonujesz wdechów mając do czynienia z zadławieniem', 49),
+(169, 'A', 'Tak, 2 wdechy', 50),
+(170, 'B', 'Nie', 50),
+(171, 'C', 'Tak, 5 wdechów', 50);
 
 -- --------------------------------------------------------
 
@@ -273,7 +291,13 @@ INSERT INTO `question` (`id_question`, `content`, `correct_answer_letter`, `fk_k
 (41, 'Jeśli poszkodowany nie jest w stanie oddychać, mówić i kaszleć, masz do czynienia z:', 'A', 5),
 (42, 'Jeśli poszkodowany nie jest w stanie oddychać, mówić i kaszleć, masz do czynienia z:', 'A', 5),
 (43, 'Co zastosujesz wcześniej?', 'A', 5),
-(44, 'Wsparcie psychiczne poszkodowanego powinno być zastosowane:', 'C', 5);
+(44, 'Wsparcie psychiczne poszkodowanego powinno być zastosowane:', 'C', 5),
+(45, 'Ile uderzeń w okolicę międzyłopatkową wykonasz maksymalnie w jednym cyklu?', 'A', 5),
+(46, 'Ile uciśnięć nadbrzusza (rękoczyn Heimlicha) wykonasz maksymalnie w jednym cyklu?', 'A', 5),
+(47, 'Poszkodowany traci przytomność podczas uciśnięć nadbrzusza, co robisz?', 'A', 5),
+(48, 'Poszkodowany traci przytomność podczas uderzeń w okolicę międzyłopatkową, czy sprawdzasz oddech?', 'A', 5),
+(49, 'Zanim wykonasz wdech ratowniczy mając do czynienia z zadławieniem powinieneś:', 'A', 5),
+(50, 'Mając do czynienia z zadławieniem wykonasz wdechy ratownicze podczas RKO?', 'A', 5);
 
 -- --------------------------------------------------------
 
@@ -319,7 +343,7 @@ CREATE TABLE `user_has_kurs` (
 
 INSERT INTO `user_has_kurs` (`id_user_has_kurs`, `date_finish_kurs`, `date_finish_exam`, `exam_result`, `fk_kurs`, `fk_user`) VALUES
 (1, '2017-04-10', '2017-04-10', 88, 1, 1),
-(2, '2017-04-15', NULL, NULL, 4, 1),
+(2, '2017-04-15', '2017-04-19', 0, 4, 1),
 (3, '2017-04-16', '2017-04-16', 50, 2, 1),
 (4, '2017-04-16', '2017-04-16', 100, 3, 1),
 (5, '2017-04-16', '2017-04-16', 100, 5, 1);
@@ -376,7 +400,7 @@ ALTER TABLE `user_has_kurs`
 -- AUTO_INCREMENT dla tabeli `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `id_answer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+  MODIFY `id_answer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 --
 -- AUTO_INCREMENT dla tabeli `kurs`
 --
@@ -391,7 +415,7 @@ ALTER TABLE `password_change_requests`
 -- AUTO_INCREMENT dla tabeli `question`
 --
 ALTER TABLE `question`
-  MODIFY `id_question` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_question` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- Ograniczenia dla zrzutów tabel
 --
