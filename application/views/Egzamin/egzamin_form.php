@@ -16,6 +16,9 @@
 		<?php foreach ($question->answers as $letter => $answer): ?>
 			<div class="option"><label><input type="radio" name="question_<?= $question->id_question ?>" value="<?= $letter ?>"><?= $answer ?></label></div>
 		<?php endforeach; ?>
+		<?php if($key!=0): ?>
+			<button type="button" class="prev">Poprzednie pytanie</button>
+		<?php endif; ?>
 		<?php if($key!=$last): ?>
 			<button type="button" class="next">Następne pytanie</button>
 		<?php else: ?>
