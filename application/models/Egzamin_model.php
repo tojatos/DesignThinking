@@ -32,12 +32,20 @@ class Egzamin_model extends MY_Model
         if ($user_exists->result() == null) {
             throw new Exception('Nie ma takiego użytkownika! Skontaktuj się z administratorem.<br>');
         }
-        $exam_result = $this->get_exam_result($d);
-        if ($exam_result != null) {
+        if ($this->has_user_finished_exam($d) == true) {
             throw new Exception('Już ukończyłeś ten egzamin!');
         }
 
 
+    }
+    public function has_user_finished_exam($d)
+    {
+      $exam_result = $this->get_exam_result($d);
+      if ($exam_result == null) {
+          return false;
+      } else {
+        return true;
+      }
     }
     public function get_exam_result($d)
     {
