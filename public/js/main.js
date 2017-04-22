@@ -143,6 +143,7 @@ function showResponse(response) {
 	$('.blur').show();
 	$('.response').show();
 	$('.response > .text').html(response);
+	$('.accept-response').focus();
 }
 
 function hideResponse() {
