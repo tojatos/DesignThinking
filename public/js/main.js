@@ -15,27 +15,55 @@ $(document).on("click", ".user_dropdown_toggle", function toggle() {
 |--------------------------------------------------------------------------
 |
 */
-$(document).on("click", ".next", function nextQuestion() {
-	let question = $(this).parent();
-	question.addClass('hidden');
-	question.next().removeClass('hidden');
+function initialize_exam_form() {
+	$(document).on("click", ".next", function nextQuestion() {
+		let question = $(this).parent();
+		if(is_checked_question(question))
+		{
+			question.addClass('hidden');
+			question.next().removeClass('hidden');
 
-});
+		}
+		else {
+			showResponse("Trzeba coś zaznaczyć!")
+		}
+
+	});
+	$(document).on("click", ".prev", function prevQuestion() {
+		let question = $(this).parent();
+		// if(is_checked_question(question))
+		// {
+			question.addClass('hidden');
+			question.prev().removeClass('hidden');
+		// }
+		// else {
+		// 	showResponse("Trzeba coś zaznaczyć!")
+		// }
+	});
+
+	function is_checked_question(question) {
+		if (!$(question.find("input:checked")).val()) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+}
+
 /*
 |--------------------------------------------------------------------------
 | Ranking
 |--------------------------------------------------------------------------
 |
 */
-function gradient_percent()
-{
-  var circles = $(".exam_ranking_circle");
-  for(var i = 0; i < circles.length; i++) {
-    var precent = circles[i].firstChild.innerHTML;
-    if(precent == 100)
-      precent *= 2;
-    $(circles[i]).css('background', 'linear-gradient(0deg, rgb(88, 178, 255) 0%,rgba(255,0,0,0)' + precent + "%)")
-  }
+function gradient_percent() {
+	var circles = $(".exam_ranking_circle");
+	for (var i = 0; i < circles.length; i++) {
+		var precent = circles[i].firstChild.innerHTML;
+		if (precent == 100)
+			precent *= 2;
+		$(circles[i]).css('background', 'linear-gradient(0deg, rgb(88, 178, 255) 0%,rgba(255,0,0,0)' + precent + "%)")
+	}
 }
 /*
 |--------------------------------------------------------------------------
@@ -48,37 +76,37 @@ function generatePDF(data) {
 	var date = data.recent_exam_date;
 	var image1 = data.image1;
 	var image2 = data.image2;
-  var docDefinition = {
-    content: [{
-        text: "Karta Młodego Ratownika\n",
-        fontSize: 22,
-        bold: true,
-        alignment: 'center',
-        margin: [0, 15, 0, 10]
-      },
-      {
-        image: image1,
-        width: 320,
-        height: 80
-      },
-      {
-        text: name + " ukończył kurs" + " dnia: " + date,
-        fontSize: 18,
-        margin: [0, 15, 0, 0],
-        alignment: 'center',
-      },
-      {
-        image: image2,
-        width: 320,
-        height: 200
-      }
-    ],
-    pageSize: {
-      width: 325,
-      height: 204
-    },
-    pageMargins: 1
-  };
+	var docDefinition = {
+		content: [{
+				text: "Karta Młodego Ratownika\n",
+				fontSize: 22,
+				bold: true,
+				alignment: 'center',
+				margin: [0, 15, 0, 10]
+			},
+			{
+				image: image1,
+				width: 320,
+				height: 80
+			},
+			{
+				text: name + " ukończył kurs" + " dnia: " + date,
+				fontSize: 18,
+				margin: [0, 15, 0, 0],
+				alignment: 'center',
+			},
+			{
+				image: image2,
+				width: 320,
+				height: 200
+			}
+		],
+		pageSize: {
+			width: 325,
+			height: 204
+		},
+		pageMargins: 1
+	};
 	pdfMake.createPdf(docDefinition).download(name + '.pdf');
 
 	String.prototype.capitalize = function() {
@@ -115,6 +143,7 @@ function showResponse(response) {
 	$('.blur').show();
 	$('.response').show();
 	$('.response > .text').html(response);
+	$('.accept-response').focus();
 }
 
 function hideResponse() {
@@ -152,6 +181,7 @@ function sendPostDataOnSubmit(handler, url, refresh = false) {
 	});
 }
 $(function() {
+	initialize_exam_form();
 	gradient_percent();
 	$('.accept-response').on("click", function() {
 		if ($(this).hasClass('refresh')) {
@@ -178,7 +208,7 @@ $(function() {
 |
 */
 
-// $('.frame_kurs').mouseenter(function(){  stare = $(this).html(); 
+// $('.frame_kurs').mouseenter(function(){  stare = $(this).html();
 // 	$(this).html("Zobaczyłeś leżącego na ulicy mężczyznę. Co robisz? Uciekasz, pomagasz, a może nie wiesz co zrobić? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas nagłego zatrzymania krążenia.");   })
 
 // $('.frame_kurs').mouseleave(function(){  $(this).html(stare);   })

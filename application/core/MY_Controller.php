@@ -23,8 +23,8 @@ class MY_Controller extends CI_Controller
     }
     protected function showMessage($message, $data = null)
     {
+        $data['content'] = $this->loadContent('show_message', ['message' => $message]);
         $data['mainNav'] = $this->loadMainNav();
-        $data['message'] = $message;
-        $this->showView('show_message', $data);
+        $this->showMainView($data);
     }
 }

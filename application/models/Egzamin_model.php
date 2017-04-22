@@ -32,12 +32,20 @@ class Egzamin_model extends MY_Model
         if ($user_exists->result() == null) {
             throw new Exception('Nie ma takiego użytkownika! Skontaktuj się z administratorem.<br>');
         }
-        $exam_result = $this->get_exam_result($d);
-        if ($exam_result != null) {
+        if ($this->has_user_finished_exam($d) == true) {
             throw new Exception('Już ukończyłeś ten egzamin!');
         }
 
 
+    }
+    public function has_user_finished_exam($d)
+    {
+      $exam_result = $this->get_exam_result($d);
+      if ($exam_result == null) {
+          return false;
+      } else {
+        return true;
+      }
     }
     public function get_exam_result($d)
     {
@@ -57,6 +65,24 @@ class Egzamin_model extends MY_Model
           $exam_result = $query->result()[0]->exam_result;
         }
         return $exam_result;
+    }
+    public function get_kurs_finish_state($d)
+    {
+      $query = $this->db
+        ->select('exam_result')
+        ->from(USER_KURS_TABLE)
+        ->where([
+          'fk_user' => $d['id_user'],
+          'fk_kurs' => $d['id_kurs'],
+        ])
+        ->get();
+        if($query->result() == null)
+        {
+          return false;
+        }
+        else {
+          return true;
+        }
     }
     public function get_exam_content($exam_id)
     {

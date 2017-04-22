@@ -34,6 +34,10 @@ class Egzamin extends MY_Controller
         if (!$has_finished_kurs) {
             throw new Exception('Aby mieć dostęp do tego egzaminu musisz ukończyć odpowiadający mu kurs!');
         }
+        $has_user_finished_exam = $this->Egzamin_model->has_user_finished_exam(['id_kurs' => $id_egzamin, 'id_user' => $user_id]);
+        if ($has_user_finished_exam) {
+            throw new Exception('Ten egzamin już jest ukończony!');
+        }
     }
     public function ajax_finish_exam()
     {
