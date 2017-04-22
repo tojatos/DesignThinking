@@ -22,7 +22,7 @@
         <li><a href="<?= site_url('Register')?>" class="<?= ($this->uri->segment(1)=="Register") ? "active" : ""?>">Zarejestruj się!</a></li>
         <li><a href="<?= site_url('Login')?>" class="<?= ($this->uri->segment(1)=="Login") ? "active" : ""?>">Zaloguj się!</a></li>
       <?php else: ?>
-        <span class="user_dropdown_toggle"><img src="" alt="Zdjęcie profilowe"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+        <span class="user_dropdown_toggle"><img src="<?= site_url() ?>public/images/default.jpg" alt="Zdjęcie profilowe"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
         <div class="user_dropdown">
           <ul>
             <li><a href="<?= site_url('User') ?>">Mój profil</a></li>
