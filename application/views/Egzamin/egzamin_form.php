@@ -17,12 +17,12 @@
 			<div class="option"><label class="option"><input type="radio" name="question_<?= $question->id_question ?>" value="<?= $letter ?>"><?= $answer ?></label></div>
 		<?php endforeach; ?>
 		<?php if($key!=0): ?>
-			<button type="button" class="prev">Poprzednie pytanie</button>
+			<button type="button" class="prev btn">Poprzednie pytanie</button>
 		<?php endif; ?>
 		<?php if($key!=$last): ?>
-			<button type="button" class="next">Następne pytanie</button>
+			<button type="button" class="next btn btn-primary">Następne pytanie</button>
 		<?php else: ?>
-			<input type="submit" value="Zakończ egzamin">
+			<input type="submit" class="btn btn-success" value="Zakończ egzamin">
 		<?php endif; ?>
 	</div>
 	<?php endforeach; ?>

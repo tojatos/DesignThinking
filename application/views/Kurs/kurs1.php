@@ -91,7 +91,7 @@
 </br>
 <form class="finish_kurs_form" action="" method="post">
 	<input type="hidden" name="kurs_id" value="1">
-	<input type="submit" value="Zakończ kurs 1">
+	<input type="submit" class="btn btn-success btn-lg" value="Zakończ kurs 1">
 </form>
 </div>
 
