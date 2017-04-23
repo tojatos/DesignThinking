@@ -6,29 +6,33 @@
 <div class="kurs_inner">
 <div class="row">
         <img class="img-responsive col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto19.jpg" />
-        <u class="pdk">1. Wykonuj RKO!</u></br>
+        <div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6"><b class="pdk">1. Wykonuj RKO!</b></br>
 			Dopiero w tej części kursów, gdy masz już przyswojoną wiedzę odnośnie RKO dowiadujesz siępo co Ci była osoba do pomocy w kursie dotyczącym właśnie RKO. Po to by zadzwonić na pogotowie i przynieść najważniejszą rzecz potrzebną w procesie reanimacji – defibrylator, w czasie kiedy ty wykonujesz uciski mostka oraz wdechy ratownicze!
+        </div>
 </div>
 </br>
 <div class="row">
         <img class="img-responsive pull-right col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto20.jpg" />
-        <u class="pdk">2. Włącz AED!</u></br>
+        <div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6"><b class="pdk">2. Włącz AED!</b></br>
 			Gdy Twój pomocnik przyniesie defibrylator niezwłocznie powinien go uruchomić. Kiedy tak sięstanie usłyszysz informacje jak przykleić elektrody.
+        </div>
 </div>
 </br>
 <div class="row">
         <img class="img-responsive col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto15.jpg" />
-        <u class="pdk">3. Przyklej elektrody!</u></br>
+        <div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6"><b class="pdk">3. Przyklej elektrody!</b></br>
 			<p>Naklej elektrody na odsłoniętą klatkę piersiową poszkodowanego, tak jak pokazano na opakowaniu elektrod:</p>
 			<p style="margin-left:10px;"><b>I.</b> pod prawym obojczykiem wzdłużtułowia</p>
 			<p style="margin-left:10px;"><b>II.</b> pod lewą pachą wzdłuż tułowia</p>
 			<p>Odsuń się od osoby poszkodowanej ponieważ po naklejeniu elektrod następuje analiza rytmu serca.</p>
+        </div>
 </div>
 </br>
 <div class="row">
         <img class="img-responsive pull-right col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto21.jpg" />
-        <u class="pdk">4. Postępuj zgodnie z poleceniami urządzenia!</u></br>
+        <div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6"><b class="pdk">4. Postępuj zgodnie z poleceniami urządzenia!</b></br>
 			W zasadzie wiesz już wszystko co potrzebne, by prawidłowo użyć AED. Po naklejeniu elektrod oraz uruchomieniu urządzenia wszystko zostanie Ci przekazane w postaci komunikatów głosowych. Postępuj zgodnie z nimi, zaś przede wszystkim nie bój się używać AED.
+        </div>
 </div>
 </br>
 

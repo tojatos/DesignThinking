@@ -14,7 +14,7 @@
 		<h2 class="p_rank">Pytanie <?= $number_questions ?></h2>
 		<p class="question"><?= $question->content ?></p>
 		<?php foreach ($question->answers as $letter => $answer): ?>
-			<div class="option"><label><input type="radio" name="question_<?= $question->id_question ?>" value="<?= $letter ?>"><?= $answer ?></label></div>
+			<div class="option"><label class="option"><input type="radio" name="question_<?= $question->id_question ?>" value="<?= $letter ?>"><?= $answer ?></label></div>
 		<?php endforeach; ?>
 		<?php if($key!=0): ?>
 			<button type="button" class="prev">Poprzednie pytanie</button>
