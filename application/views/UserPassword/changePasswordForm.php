@@ -1,8 +1,31 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<form class="change_password_form" method="post">
-  <h2 class="center">Zmień hasło</h2>
-  <input type="hidden" name="code" value="<?= $code ?>">
-  <div class="input"><label>Nowe hasło:</label><input type="password" name="password" value="" placeholder=""></div>
-  <div class="input"><input type="submit" value="Zmień hasło"></div>
-</form>
-<a href="<?= base_url() ?>" class="center">Powrót do strony głównej</a>
+<div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<h1 class="title">Zmień hasło</h1>
+	               		<hr />
+	               	</div>
+	            </div>
+				<div class="main-login main-center col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2
+							col-sm-8 col-sm-offset-2 col-sx-8 col-sx-offset-1">
+          <form class="change_password_form" method="post">
+            <input type="hidden" name="code" value="<?= $code ?>">
+            <div class="input">
+              <label for="password" class="cols-sm-2 control-label">Nowe hasło</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password"  placeholder="" value=""/>
+								</div>
+							</div>
+						</div>
+            </br>
+
+						<div class="form-group ">
+							<div><input class="btn btn-primary btn-lg btn-block login-button" type="submit" value="Przywróć hasło"></div>
+						</div>
+            </form>
+				            <a href="<?= base_url() ?>" class="center">Powrót do strony głównej</a>
+				</div>
+			
