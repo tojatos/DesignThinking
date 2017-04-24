@@ -2,7 +2,7 @@
 <main>
     <div class="container">
     <div class="jumbotron">
-    <?= $message ?>
+    <p><?= $message ?></p>
     </div>
     </div>
 </main>
