@@ -140,4 +140,15 @@ class Egzamin_model extends MY_Model
       $recent_date = date('d/m/Y', $max_seconds);
       return $recent_date;
     }
+    public function delete_user_exam_data($d)
+    {
+      $update_data = [
+        'date_finish_exam' => null,
+        'exam_result' => null
+      ];
+      $this->db->
+      where(['fk_user' => $d['user_id'], 'fk_kurs' =>$d['exam_id']])->
+      update(USER_KURS_TABLE, $update_data);
+
+    }
 }

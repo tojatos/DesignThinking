@@ -195,6 +195,7 @@ $(function() {
 	sendPostDataOnSubmit('.register_form', 'Register/ajax_register');
 	sendPostDataOnSubmit('.finish_kurs_form', 'Kurs/ajax_finish_kurs', true);
 	sendPostDataOnSubmit('.egzamin_form', 'Egzamin/ajax_finish_exam', true);
+	sendPostDataOnSubmit('.restart_exam_form', 'Egzamin/ajax_restart_exam', true);
 	sendPostDataOnSubmit('.forgotten_password_form', 'UserPassword/ajax_forgottenPassword', true);
 	sendPostDataOnSubmit('.change_password_form', 'UserPassword/ajax_changePassword', true);
 
