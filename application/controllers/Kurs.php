@@ -9,7 +9,27 @@ class Kurs extends MY_Controller
         if ($id_kurs == 0) {
             $view['content'] = $this->loadContent('Kurs/index');
         } else {
-            $view['content'] = $this->loadContent('Kurs/kurs'.$id_kurs);
+            if($this->session->is_logged)
+            {
+              $this->load->model('Kurs_model');
+              $this->load->model('User_model');
+              $username = $this->session->user_name;
+              $id_user = $this->User_model->get_user_id($username);
+              $has_finished_kurs = $this->Kurs_model->has_finihed_kurs([
+                'id_user' => $id_user,
+                'id_kurs' => $id_kurs
+              ]);
+              if($has_finished_kurs)
+              {
+                $view['content'] = $this->loadContent('Kurs/kurs'.$id_kurs, ['has_finished_kurs' => true]);
+              }
+              else {
+                $view['content'] = $this->loadContent('Kurs/kurs'.$id_kurs, ['has_finished_kurs' => false]);
+              }
+            }
+            else{
+              $view['content'] = $this->loadContent('Kurs/kurs'.$id_kurs, ['has_finished_kurs' => false]);
+            }
         }
         $this->showMainView($view);
     }

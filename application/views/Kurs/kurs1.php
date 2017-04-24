@@ -13,7 +13,7 @@
 <div class="row">
 	<img class="img-responsive pull-right col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto2.jpg" />
         <div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6"><b class="pdk">2. Sprawdź czy poszkodowany reaguje!</b></br>
-		Podejdź do poszkodowanego i zapytaj: „Czy Pan mnie słyszy?”. Jeśli nie usłyszysz odpowiedzi podejdź bliżej i zadaj jeszcze raz pytanie potrząsając poszkodowanego za ramiona.			
+		Podejdź do poszkodowanego i zapytaj: „Czy Pan mnie słyszy?”. Jeśli nie usłyszysz odpowiedzi podejdź bliżej i zadaj jeszcze raz pytanie potrząsając poszkodowanego za ramiona.
 	</div>
 </div>
 </br>
@@ -71,7 +71,7 @@
 <div class="row">
 	<img class="img-responsive col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto9.jpg" />
 	<div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6">
-		<p>Pochyl się nad poszkodowanym. Ustaw wyprostowane ramiona prostopadle do mostka i uciskaj na głębokość 4-6cm. Po każdym uciśnięciu zwolnij klatkę piersiową nie odrywając dłoni od mostka. Uciśnięcia wykonuj z częstotliwością 100/min (nieco mniej niż 2/s).</p>		
+		<p>Pochyl się nad poszkodowanym. Ustaw wyprostowane ramiona prostopadle do mostka i uciskaj na głębokość 4-6cm. Po każdym uciśnięciu zwolnij klatkę piersiową nie odrywając dłoni od mostka. Uciśnięcia wykonuj z częstotliwością 100/min (nieco mniej niż 2/s).</p>
 	</div>
 </div>
 </br>
@@ -89,9 +89,13 @@
 	</div>
 </div>
 </br>
+<?php if(!$has_finished_kurs):?>
 <form class="finish_kurs_form" action="" method="post">
 	<input type="hidden" name="kurs_id" value="1">
 	<input type="submit" class="btn btn-success btn-lg" value="Zakończ kurs 1">
 </form>
+<?php else: ?>
+  <a class="btn btn-success btn-lg" href="<?= site_url('Egzamin/1') ?>">Rozpocznij egzamin z tego kursu</a>
+  <a class="btn btn-success btn-lg" href="<?= site_url('Kurs/2') ?>">Następny kurs</a>
+<?php endif; ?>
 </div>
-

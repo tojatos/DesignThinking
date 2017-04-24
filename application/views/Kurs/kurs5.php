@@ -15,7 +15,7 @@
 		<img class="img-responsive pull-right col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto24.jpg" />
         <div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6"><b class="pdk">2. Niedrożnośćczęściowa czy całkowita?!</b></br>
 			Pierwszym zadaniem jest ocenienie czy masz do czynienia z niedrożnościącałkowitą(B) czy teżniedrożnościączęściową(A) dróg oddechowych.
-			
+
 		</div>
 </div>
 </br>
@@ -29,14 +29,14 @@
 <div class="row">
         <img class="img-responsive col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto22.jpg" />
         <div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6"><b class="pdk">3. Uderzaj w okolicę międzyłopatkową!</b></br>
-			Sprawdź czy poszkodowany jest przytomny. Jeśli tak to stań  za nim i umieść jedną ze swych nóg pomiędzy jego nogami. Pamiętaj że twoja pozycja musi być stabilna. Pochyl poszkodowanego lekko do przodu i koniecznie wykonaj do 5 uderzeń  nadgarstkiem w okolicęmiędzyłopatkową. Uderzaj ku górze, tzw. ruchem „wybijającym”. Po każdym uderzeniu sprawdź czy ciało obce nie przedostało siędo jamy ustnej. 
+			Sprawdź czy poszkodowany jest przytomny. Jeśli tak to stań  za nim i umieść jedną ze swych nóg pomiędzy jego nogami. Pamiętaj że twoja pozycja musi być stabilna. Pochyl poszkodowanego lekko do przodu i koniecznie wykonaj do 5 uderzeń  nadgarstkiem w okolicęmiędzyłopatkową. Uderzaj ku górze, tzw. ruchem „wybijającym”. Po każdym uderzeniu sprawdź czy ciało obce nie przedostało siędo jamy ustnej.
 		</div>
 </div>
 </br>
 <div class="row">
 		<img class="img-responsive pull-right col-xs-12 col-sm-12 col-md-8 col-lg-6" src="<?= site_url() ?>public/images/Foto23.jpg" />
         <div class="kurs_content col-xs-12 col-sm-12 col-md-4 col-lg-6"><b class="pdk">4. Zastosuj rękoczyn Heimlicha!</b></br>
-			W przypadku gdy uderzenia nie pomogą konieczne jest wykonanie uciśnięć nadbrzusza (zwanych dawniej rękoczynem Heimlicha). Przyłóż jednąpięść pomiędzy pępkiem a mostkiem poszkodowanego. Chwyćpięść drugą ręką i pociągnij ku sobie i górze. Uciśnięcia powtarzaj do pięciu razy. Jeśli uciśnięcia nie będą skuteczne, kontynuuj naprzemiennie uderzenia w okolicę międzyłopatkową i rękoczyn Heimlicha.	
+			W przypadku gdy uderzenia nie pomogą konieczne jest wykonanie uciśnięć nadbrzusza (zwanych dawniej rękoczynem Heimlicha). Przyłóż jednąpięść pomiędzy pępkiem a mostkiem poszkodowanego. Chwyćpięść drugą ręką i pociągnij ku sobie i górze. Uciśnięcia powtarzaj do pięciu razy. Jeśli uciśnięcia nie będą skuteczne, kontynuuj naprzemiennie uderzenia w okolicę międzyłopatkową i rękoczyn Heimlicha.
 		</div>
 </div>
 </br>
@@ -49,10 +49,12 @@
 </div>
 </br>
 
+<?php if(!$has_finished_kurs):?>
 <form class="finish_kurs_form" action="" method="post">
 	<input type="hidden" name="kurs_id" value="5">
-	<input type="submit" class="btn btn-success btn-lg" value="Zakończ kurs 5">
+	<input type="submit" class="btn btn-succ4ss btn-lg" value="Zakończ kurs 5">
 </form>
+<?php else: ?>
+  <a class="btn btn-success btn-lg" href="<?= site_url('Egzamin/5') ?>">Rozpocznij egzamin z tego kursu</a>
+<?php endif; ?>
 </div>
-
-
