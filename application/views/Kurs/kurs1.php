@@ -95,7 +95,7 @@
 	<input type="submit" class="btn btn-success btn-lg" value="Zakończ kurs 1">
 </form>
 <?php else: ?>
-  <a class="btn btn-success btn-lg" href="<?= site_url('Egzamin/1') ?>">Rozpocznij egzamin z tego kursu</a>
+  <a class="btn btn-primary btn-lg" href="<?= site_url('Egzamin/1') ?>">Rozpocznij egzamin z tego kursu</a>
   <a class="btn btn-success btn-lg" href="<?= site_url('Kurs/2') ?>">Następny kurs</a>
 <?php endif; ?>
 </div>

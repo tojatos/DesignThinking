@@ -49,10 +49,10 @@
 <?php if(!$has_finished_kurs):?>
 <form class="finish_kurs_form" action="" method="post">
 	<input type="hidden" name="kurs_id" value="3">
-	<input type="submit" class="btn btn-succ4ss btn-lg" value="Zakończ kurs 3">
+	<input type="submit" class="btn btn-success btn-lg" value="Zakończ kurs 3">
 </form>
 <?php else: ?>
-  <a class="btn btn-success btn-lg" href="<?= site_url('Egzamin/3') ?>">Rozpocznij egzamin z tego kursu</a>
+  <a class="btn btn-primary btn-lg" href="<?= site_url('Egzamin/3') ?>">Rozpocznij egzamin z tego kursu</a>
   <a class="btn btn-success btn-lg" href="<?= site_url('Kurs/4') ?>">Następny kurs</a>
 <?php endif; ?>
 </div>
