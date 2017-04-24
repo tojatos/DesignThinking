@@ -9,17 +9,16 @@
 		</div>
 	</a>
 	</div>
-	</div>
 </div>
 <div class="row">
-	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-0">
 	<a href="<?= site_url('Kurs/2') ?>">
 		<div class="frame_kurs2 transition_kurs">
 				<p class="name_kurs success new-label"><span class="align">Oparzenia</span></p>
 		</div>
 	</a>
 	</div>
-	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-2">
+	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-2">
 	<a href="<?= site_url('Kurs/3') ?>">
 		<div class="frame_kurs3 transition_kurs">
 				<p class="name_kurs success new-label"><span class="align">Omdlenia</span></p>
@@ -28,14 +27,14 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-0">
 	<a href="<?= site_url('Kurs/4') ?>">
 		<div class="frame_kurs4 transition_kurs">
 				<p class="name_kurs success new-label"><span class="align">Postępowanie z AED</span></p>
 		</div>
 	</a>
 	</div>
-	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-2">
+	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-2">
 	<a href="<?= site_url('Kurs/5') ?>">
 		<div class="frame_kurs5 transition_kurs">
 				<p class="name_kurs success new-label"><span class="align">Zadławienia</span></p>
