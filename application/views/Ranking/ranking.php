@@ -4,9 +4,9 @@
   <table class='table table-hover'>
     <thead>
       <tr>
-        <th>Miejsce</th>
+        <th>Miasto</th>
         <th>Nick</th>
-        <th>Procent</th>
+        <th>Procent punktów</th>
       </tr>
     </thead>
     <tbody>
