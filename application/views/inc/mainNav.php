@@ -11,7 +11,7 @@
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-left">
-      <li><a href="<?= site_url('Kurs')?>"class="<?= ($this->uri->segment(1)=="Kurs") ? "active" : ""?>">Kursy</a></li>
+      <li style="margin-left:20px;"><a href="<?= site_url('Kurs')?>"class="<?= ($this->uri->segment(1)=="Kurs") ? "active" : ""?>">Kursy</a></li>
       <?php if ($this->session->is_logged): ?>
         <li><a href="<?= site_url('Egzamin')?>"class="<?= ($this->uri->segment(1)=="Egzamin") ? "active" : ""?>">Egzaminy</a></li>
       <?php endif; ?>
@@ -22,18 +22,9 @@
         <li><a href="<?= site_url('Register')?>" class="<?= ($this->uri->segment(1)=="Register") ? "active" : ""?>">Zarejestruj się!</a></li>
         <li><a href="<?= site_url('Login')?>" class="<?= ($this->uri->segment(1)=="Login") ? "active" : ""?>">Zaloguj się!</a></li>
       <?php else: ?>
-        <span class="user_dropdown_toggle"><img src="<?= site_url() ?>public/images/default.png" alt="Zdjęcie profilowe"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
-        <div class="user_dropdown">
-          <ul>
-            <li><a href="<?= site_url('User') ?>">Mój profil</a></li>
-            <li>
-              <form class="PDF_form" method="post">
-                <input type="submit" value="Ściągawka">
-              </form>
-            </li>
             <li>
               <form class="logout_form" method="post">
-                <input type="submit" value="Wyloguj">
+                <a><input class="logout" type="submit" value="Wyloguj"></a>
               </form>
             </li>
           </ul>

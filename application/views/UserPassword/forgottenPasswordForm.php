@@ -8,8 +8,8 @@
 	               		<hr />
 	               	</div>
 	            </div>
-				<div class="main-login main-center col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2
-							col-sm-8 col-sm-offset-2 col-sx-8 col-sx-offset-1">
+				<div class="main-login main-center col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4
+							col-sm-6 col-sm-offset-3 col-sx-8 col-sx-offset-4">
           <form class="forgotten_password_form" method="post">
             <div class="input">
               <label for="email" class="cols-sm-2 control-label">Email</label>

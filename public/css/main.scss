@@ -29,17 +29,52 @@ html {
     }
         
     .navbar-default {
-        background-image: linear-gradient(to bottom, #fff 0, #aae 100%);
+        background-color: #2086bf;
+        color: #fff;
+        border: none;
         li > .active {
-            color: #fff;
-            background-image: linear-gradient(to bottom, #aaf 0, #55a 100%);
+            color: #ccc;
+            background-color:  #59cde2;
 
             &:hover {
-                color: #d6d6d6;
-                background-image: linear-gradient(to bottom, #77e 0, #55a 100%);
+                color: #fff !important;
+                background-color: #61def3 !important;
             }
         }
+        .collapse{
+                background-color: #2086bf;      
+        }
     }
+
+    .navbar-default .navbar-nav>li>a {
+            color: #fff;
+             .navbar-default .navbar-nav>li>a:hover{
+                color: #eee;
+                background-color: #61def3;
+            }
+        }
+        .navbar-brand{
+            background: url(../images/bgimg.png);
+        }
+        .logout{
+            border: none;
+            background-color: transparent;
+            padding: 15px;
+            color: #fff;
+        }
+            .logout:hover{
+                color: #eee;
+                background-color: #3197cf;
+            }
+
+        .navbar-default .navbar-nav>li>a:hover{
+            color: #eee;
+            background-color: #3197cf;
+        }
+        .navbar-default {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
 
     .footer {
         position: absolute;
@@ -49,7 +84,7 @@ html {
         height: 40px;
         margin-top: 20px;
 
-        background-image: linear-gradient(to top, #eef 0, #aac 100%);
+        background-color: #2086bf;
 
         p {
             height: 40px;
@@ -83,20 +118,12 @@ html {
         box-shadow: 0 5px 23px -7px rgba(163, 185, 197, .77);
 
         .accept-response {
-            cursor: pointer;
             position: absolute;
             right: 0;
             bottom: 0;
             left: 0;
-
             width: 300px;
             margin: 5px auto;
-            padding: 10px;
-
-            text-align: center;
-
-            border-radius: 5px;
-            background-color: #aac;
         }
     }
 
@@ -106,12 +133,9 @@ html {
         top: 0;
         right: 0;
         left: 0;
-
         display: none;
-
         width: 100%;
         height: 100%;
-
         background: rgba(69, 77, 91, 0.6);
     }
 
@@ -217,7 +241,7 @@ b.pdk {
     margin: 0 30px;
 }
 
-.frame_kurs1, .frame_kurs2, .frame_kurs3, .frame_kurs4, .frame_kurs5{
+.frame_kurs{
     margin-bottom: 30px;
     width: 100%;
     height: 200px;
@@ -229,39 +253,17 @@ b.pdk {
     justify-content: center;    
     text-align: center;
     font-size: 18px;
-    text-decoration: none;
-    color: #669;
+    text-decoration: none !important; 
+    color: #2086bf;
+    background-color: #4390df;
+    
 
     .name_kurs{
-        font-size: 36px;     
+        font-size: 36px;  
+        color: #fff;   
     }
 }
 
-.frame_kurs1{
-    background: url("../images/tlo1.png");
-    background-repeat: no-repeat;
-    background-position: center; 
-}
-.frame_kurs2{
-    background: url("../images/tlo2.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.frame_kurs3{
-    background: url("../images/tlo3.png");
-    background-repeat: no-repeat;
-    background-position: center; 
-}
-.frame_kurs4{
-    background: url("../images/tlo4.png");
-    background-repeat: no-repeat;
-    background-position: center; 
-}
-.frame_kurs5{
-    background: url("../images/tlo5.png");
-    background-repeat: no-repeat;
-    background-position: center; 
-}
 
 
 .egzamin_form{
@@ -308,3 +310,6 @@ b.pdk {
     font-style: italic;
     text-align: center;
 }
+
+
+

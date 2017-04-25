@@ -2,42 +2,49 @@
 <h1 class="p_rank">Kursy</h1>
 <div class="container">
 <div class="row">
-	<div class="col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
+	<div class="col-xs-10 col-sm-5 col-md-3 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-0">
+		<div class="square-responsive frame_kurs transition_kurs">
 	 <a href="<?= site_url('Kurs/1') ?>">
-		<div class="frame_kurs1 transition_kurs">
-				<p class="name_kurs success new-label"><span class="align">Resuscytacja krążeniowo-oddechowa</span></p>
-		</div>
+		
+				<p class="name_kurs success new-label"><span class="align">Kurs 1.</span></p>
+		
 	</a>
 	</div>
-</div>
-<div class="row">
-	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-0">
+	</div>
+	<div class="col-xs-10 col-sm-5 col-md-3 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-0">
+		<div class="square-responsive frame_kurs transition_kurs">
 	<a href="<?= site_url('Kurs/2') ?>">
-		<div class="frame_kurs2 transition_kurs">
-				<p class="name_kurs success new-label"><span class="align">Oparzenia</span></p>
-		</div>
+		
+				<p class="name_kurs success new-label"><span class="align">Kurs 2.</span></p>
+		
 	</a>
 	</div>
-	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-2">
+	</div>
+	<div class="col-xs-10 col-sm-5 col-md-3 col-lg-4 col-xs-offset-1 col-sm-offset-4 col-md-offset-1 col-lg-offset-0">
+		<div class="square-responsive frame_kurs transition_kurs">
 	<a href="<?= site_url('Kurs/3') ?>">
-		<div class="frame_kurs3 transition_kurs">
-				<p class="name_kurs success new-label"><span class="align">Omdlenia</span></p>
-		</div>
+
+				<p class="name_kurs success new-label"><span class="align">Kurs 3.</span></p>
+
 	</a>
+	</div>
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-0">
+	
+</div>
+<div class="row">
+	<div class="col-xs-10 col-sm-5 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
 	<a href="<?= site_url('Kurs/4') ?>">
-		<div class="frame_kurs4 transition_kurs">
-				<p class="name_kurs success new-label"><span class="align">Postępowanie z AED</span></p>
+		<div class="frame_kurs transition_kurs">
+				<p class="name_kurs success new-label"><span class="align">Kurs 4.</span></p>
 		</div>
 	</a>
 	</div>
-	<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-2">
+	<div class="col-xs-10 col-sm-5 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-1">
 	<a href="<?= site_url('Kurs/5') ?>">
-		<div class="frame_kurs5 transition_kurs">
-				<p class="name_kurs success new-label"><span class="align">Zadławienia</span></p>
+		<div class="frame_kurs transition_kurs">
+				<p class="name_kurs success new-label"><span class="align">Kurs 5.</span></p>
 		</div>
 	</a>
 	</div>
@@ -53,7 +60,7 @@
 
 
 
-<script>
+<!--<script>
 $('.frame_kurs1').mouseenter(function(){  stare = $(this).html(); 
 	$(this).html("Zobaczyłeś leżącego na ulicy mężczyznę. Co robisz? Uciekasz, pomagasz, a może nie wiesz co zrobić? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas nagłego zatrzymania krążenia.");   })
 
@@ -78,4 +85,4 @@ $('.frame_kurs5').mouseenter(function(){  stare = $(this).html();
 	$(this).html("Razem z rodziną spożywasz posiłek. Nagle jeden z twoich bliskich zaczyna się zaczyna się dusić - okazuje się iż masz do czynienia z zadławieniem. Co robisz ? Pomagasz, zastanawiasz się co zrobić, a może zaczynasz działać? Ten kurs nauczy Cię jak postępować w takiej sytuacji!");   })
 
 $('.frame_kurs5').mouseleave(function(){  $(this).html(stare);   })
-</script>
+</script>-->
