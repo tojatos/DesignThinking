@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<h1 class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-4 col-sm-offset-5 col-md-offset-5 col-lg-offset-5">Egzaminy</h1>
+<h1 class="p_rank">Egzaminy</h1>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-4 col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">

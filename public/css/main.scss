@@ -83,15 +83,13 @@ html {
         width: 100%;
         height: 40px;
         margin-top: 20px;
-
+        color: #fff;
         background-color: #2086bf;
 
         p {
             height: 40px;
             margin: 0;
-
             text-align: center;
-
             font-size: 15px;
             line-height: 40px;
         }
@@ -210,9 +208,7 @@ span.exam_ranking_number {
 
 .p_rank {
     padding: 30px;
-
     text-align: center;
-
     font-size: 32px;
 }
 
@@ -308,6 +304,7 @@ b.pdk {
 .info{
     font-size: 12px;
     font-style: italic;
+    text-align: center;
 }
 
 

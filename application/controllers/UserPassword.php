@@ -73,7 +73,8 @@ class UserPassword extends MY_Controller
           }
           $this->UserPassword_model->changePassword($code, $password);
           $this->UserPassword_model->removeRequest($code);
-          echo 'Pomyślnie zmieniono hasło.';
+          echo "Pomyślnie zmieniono hasło.
+          <p><a class='btn btn-primary btn-lg' href='/Login'>zaloguj</a></p>";
       } catch (Exception $e) {
           echo 'Zmiana hasła nie powiodła się:<br>';
           echo $e->getMessage();
