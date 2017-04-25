@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<div class="container"><h1><u>Omdlenia</u></h1>
+<div class="container"><h1><b>Omdlenia</b></h1>
 <p><i>Siedząc w autobusie pan siedzący obok Ciebie mówi Ci że ma zawroty głowy, a po chwili traci świadomość. Co zrobić? Powiedzieć kierowcy, a może samemu udzielić pierwszej pomocy? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas omdleń.
 </i></p>
 <div class="kurs_inner">

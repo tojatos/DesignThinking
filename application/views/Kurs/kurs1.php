@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<div class="container"><h1><u>Resuscytacja krążeniowo-oddechowa</u></h1>
+<div class="container"><h1><b>Resuscytacja krążeniowo-oddechowa</b></h1>
 <p><i>Zobaczyłeś leżącego na ulicy mężczyznę. Co robisz? Uciekasz, pomagasz, a może nie wiesz co zrobić? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas nagłego zatrzymania krążenia. </i></p>
 <div class="kurs_inner">
 

@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<div class="container"><h1><u>Postępowanie z AED</u></h1>
+<div class="container"><h1><b>Postępowanie z AED</b></h1>
 <p><i>
     Dziś– kiedy AED (automatyczny elektryczny defibrylator) jest dostępny dosyć często postanowiliśmy przybliżyć Ci zasadę jego użycia, tak naprawdę bardzo prostą zasadę - znajdź i uruchom.
 </i></p>

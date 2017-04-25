@@ -42,6 +42,9 @@
 	</a>
 	</div>
 </div>
+	<div>
+	<p class="info">Fotografie: Sekcja ratownictwa medycznego SzK LOK</p>
+	</div>
 </div>
 
 
