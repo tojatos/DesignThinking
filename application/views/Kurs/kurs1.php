@@ -50,7 +50,7 @@
 			<li>• Złap dalszą rękę poszkodowanego tak, aby palce dłoni poszkodowanego przeplatały sięz palcami dłoni ratownika – Ciebie.</li>
 			<li>• Przełóż splecioną rękę poszkodowanego tak, by dłoń  znajdowała się przy bliższym Tobie policzku poszkodowanego.</li>
 			<li>• Podtrzymując rękę przy policzku, pociągnij drugą ręką za kolano poszkodowanego tak, aby poszkodowany obróciłsię na bok w twoim kierunku.</li>
-			<li>• Odchyl głowę poszkodowanego do tyłu, aby poprawić drożnośćdróg oddechowych</li>
+			<li>• Odchyl głowę poszkodowanego do tyłu, aby poprawić drożność dróg oddechowych</li>
 		</ul>
 </div>
 </div>
