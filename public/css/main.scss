@@ -30,7 +30,8 @@ html {
         
     .navbar-default {
         
-        background-color: #2086bf;
+        background-color: #2086bf !important;
+        background-image: none;
         color: #fff;
         border: none;
         li > .active {
