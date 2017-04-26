@@ -11,7 +11,7 @@
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-left">
-      <li style="margin-left:20px;"><a href="<?= site_url('Kurs')?>"class="<?= ($this->uri->segment(1)=="Kurs") ? "active" : ""?>">Kursy</a></li>
+      <li><a href="<?= site_url('Kurs')?>"class="<?= ($this->uri->segment(1)=="Kurs") ? "active" : ""?>">Kursy</a></li>
       <?php if ($this->session->is_logged): ?>
         <li><a href="<?= site_url('Egzamin')?>"class="<?= ($this->uri->segment(1)=="Egzamin") ? "active" : ""?>">Egzaminy</a></li>
       <?php endif; ?>

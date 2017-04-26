@@ -29,6 +29,7 @@ html {
     }
         
     .navbar-default {
+        
         background-color: #2086bf;
         color: #fff;
         border: none;
@@ -42,7 +43,9 @@ html {
             }
         }
         .collapse{
-                background-color: #2086bf;      
+                background-color: #2086bf;   
+                border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;   
         }
     }
 
@@ -52,9 +55,6 @@ html {
                 color: #eee;
                 background-color: #61def3;
             }
-        }
-        .navbar-brand{
-            background: url(../images/bgimg.png);
         }
         .logout{
             border: none;
@@ -71,15 +71,12 @@ html {
             color: #eee;
             background-color: #3197cf;
         }
-        .navbar-default {
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
 
     .footer {
         position: absolute;
         bottom: 0;
-
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         width: 100%;
         height: 40px;
         margin-top: 20px;
