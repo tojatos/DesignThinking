@@ -29,11 +29,14 @@ html {
     }
         
     .navbar-default {
-        
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
         background-color: #2086bf !important;
         background-image: none;
         color: #fff;
         border: none;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;  
         li > .active {
             color: #ccc;
             background-color:  #59cde2;
@@ -44,9 +47,7 @@ html {
             }
         }
         .collapse{
-                background-color: #2086bf;   
-                border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;   
+                background-color: #2086bf;    
         }
     }
 
