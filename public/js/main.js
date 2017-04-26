@@ -204,12 +204,17 @@ $(function() {
 
 /*
 |--------------------------------------------------------------------------
-| Document ready
+| Google Analystics
 |--------------------------------------------------------------------------
 |
 */
 
-// $('.frame_kurs').mouseenter(function(){  stare = $(this).html();
-// 	$(this).html("Zobaczyłeś leżącego na ulicy mężczyznę. Co robisz? Uciekasz, pomagasz, a może nie wiesz co zrobić? Ten materiał przybliży Ci podstawowe zasady udzielania pierwszej pomocy podczas nagłego zatrzymania krążenia.");   })
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-// $('.frame_kurs').mouseleave(function(){  $(this).html(stare);   })
+  ga('create', 'UA-98113799-1', 'auto');
+  ga('send', 'pageview');
+
+
