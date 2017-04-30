@@ -5,14 +5,25 @@ class Kurs extends MY_Controller
 {
     public function index($id_kurs = 0)
     {
+      $this->load->model('Kurs_model');
+      $this->load->model('User_model');
+      $this->load->model('Egzamin_model');
+
         $view['mainNav'] = $this->loadMainNav();
         if ($id_kurs == 0) {
-            $view['content'] = $this->loadContent('Kurs/index');
+            if(!$this->session->is_logged)
+            {
+              $view['content'] = $this->loadContent('Kurs/index', ['kurs_finish_states' => null]);
+            }
+            else {
+              $username = $this->session->user_name;
+              $user_id = $this->User_model->get_user_id($username);
+              $kurs_finish_states = $this->get_kurs_finish_states($user_id);
+              $view['content'] = $this->loadContent('Kurs/index', ['kurs_finish_states' => $kurs_finish_states]);
+            }
         } else {
             if($this->session->is_logged)
             {
-              $this->load->model('Kurs_model');
-              $this->load->model('User_model');
               $username = $this->session->user_name;
               $id_user = $this->User_model->get_user_id($username);
               $has_finished_kurs = $this->Kurs_model->has_finihed_kurs([
@@ -32,6 +43,21 @@ class Kurs extends MY_Controller
             }
         }
         $this->showMainView($view);
+    }
+    private function get_kurs_finish_states($user_id)
+    {
+        $number_of_kurs = $this->Kurs_model->get_number_of_kurs();
+        $kurs_finish_states = [];
+        for ($i = 1; $i <= $number_of_kurs; ++$i) {
+            $user_kurs_data = [
+              'id_kurs' => $i,
+              'id_user' => $user_id,
+            ];
+            $kurs_finish_state = $this->Egzamin_model->get_kurs_finish_state($user_kurs_data);
+            $kurs_finish_states[$i] = $kurs_finish_state;
+        }
+
+        return $kurs_finish_states;
     }
     public function ajax_finish_kurs()
     {
