@@ -24,7 +24,7 @@ class Egzamin extends MY_Controller
             } else {
                 $has_finished_kurs = $this->Kurs_model->has_finihed_kurs(['id_kurs' => $id_egzamin, 'id_user' => $user_id]);
                 if (!$has_finished_kurs) {
-                    throw new Exception('Aby mieć dostęp do tego egzaminu musisz ukończyć odpowiadający mu kurs!');
+                    throw new Exception('Aby mieć dostęp do tego egzaminu musisz ukończyć odpowiadający mu kurs! <br><br><a class="btn btn-success btn-lg" href="'.site_url('Kurs/'.$id_egzamin).'">Przejdź do kursu</a>');
                 }
                 $has_user_finished_exam = $this->Egzamin_model->has_user_finished_exam(['id_kurs' => $id_egzamin, 'id_user' => $user_id]);
                 if ($has_user_finished_exam) {
