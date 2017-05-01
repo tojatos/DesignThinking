@@ -306,6 +306,17 @@ b.pdk {
     text-align: center;
 }
 
-.status{
+.status_t{
     font-size: 18px;
+    background-color: #60A917;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+.status_f{
+    font-size: 18px;
+    background-color: #CE352C;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
 }

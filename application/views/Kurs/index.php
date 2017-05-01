@@ -6,7 +6,7 @@
 			<a href="<?= site_url('Kurs/1') ?>">
 				<div class="frame_kurs frame1 transition_kurs">
 					<p class="name_kurs success new-label"><span class="align">Kurs 1.</span>
-					<span class="status"><?= ($kurs_finish_states[3]) ? "ukończony":"nieukończony" ?></span></p></p>
+					<?= ($kurs_finish_states[1]) ? "<span class='status_t'>ukończony</span>":"<span class='status_f'>nieukończony</span>" ?></p>
 				</div>
 			</a>
 		</div>
@@ -14,7 +14,7 @@
 			<a href="<?= site_url('Kurs/2') ?>">
 				<div class="frame_kurs transition_kurs">
 					<p class="name_kurs success new-label"><span class="align">Kurs 2.</span>
-					<span class="status"><?= ($kurs_finish_states[3]) ? "ukończony":"nieukończony" ?></span></p></p>
+					<?= ($kurs_finish_states[2]) ? "<span class='status_t'>ukończony</span>":"<span class='status_f'>nieukończony</span>" ?></p>
 				</div>
 			</a>
 		</div>
@@ -23,7 +23,7 @@
 			<a href="<?= site_url('Kurs/3') ?>">
 				<div class="frame_kurs transition_kurs">
 					<p class="name_kurs success new-label"><span class="align">Kurs 3.</span>
-					<span class="status"><?= ($kurs_finish_states[3]) ? "ukończony":"nieukończony" ?></span></p>
+					<?= ($kurs_finish_states[3]) ? "<span class='status_t'>ukończony</span>":"<span class='status_f'>nieukończony</span>" ?></p>
 				</div>
 			</a>
 		</div>
@@ -31,7 +31,7 @@
 			<a href="<?= site_url('Kurs/4') ?>">
 				<div class="frame_kurs transition_kurs">
 					<p class="name_kurs success new-label"><span class="align">Kurs 4.</span>
-					<span class="status"><?= ($kurs_finish_states[3]) ? "ukończony":"nieukończony" ?></span></p></p>
+					<?= ($kurs_finish_states[4]) ? "<span class='status_t'>ukończony</span>":"<span class='status_f'>nieukończony</span>" ?></p>
 				</div>
 			</a>
 		</div>
@@ -39,7 +39,7 @@
 			<a href="<?= site_url('Kurs/5') ?>">
 				<div class="frame_kurs transition_kurs">
 					<p class="name_kurs success new-label"><span class="align">Kurs 5.</span>
-					<span class="status"><?= ($kurs_finish_states[3]) ? "ukończony":"nieukończony" ?></span></p></p>
+					<?= ($kurs_finish_states[5]) ? "<span class='status_t'>ukończony</span>":"<span class='status_f'>nieukończony</span>" ?></p>
 				</div>
 			</a>
 		</div>
