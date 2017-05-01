@@ -49,6 +49,40 @@ function initialize_exam_form() {
 		}
 	}
 }
+function sendPostDataOnSubmit(handler, url, refresh = false) {
+
+	$(document).on("submit", handler, function(e) { //$(document) na początku żeby działało dla dynamicznych elementów
+		e.preventDefault();
+		var data = $(this).serialize();
+		sendPostData(data, url);
+		if (refresh) {
+			$('.accept-response').addClass("refresh");
+		} else {
+			$('.accept-response').removeClass("refresh");
+		}
+	});
+}
+$(document).on("submit", '.egzamin_form', function(e) {
+	e.preventDefault();
+	var data = $(this).serialize();
+	$.ajax({
+		url: baseUrl + 'Egzamin/ajax_finish_exam',
+		type: 'POST',
+		data: data,
+		success: function(serverResponse) {
+			if(serverResponse==='[EXAM_FINISHED]')
+			{
+				window.location.replace(baseUrl + "Egzamin");
+			}
+			else{
+				showResponse(serverResponse);
+			}
+		},
+		error: function() {
+			showResponse('Błąd związany z wysyłaniem danych.<br>Sprawdź swoje połączenie internetowe.');
+		}
+	});
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -194,7 +228,6 @@ $(function() {
 	sendPostDataOnSubmit('.logout_form', 'Login/ajax_logout', true);
 	sendPostDataOnSubmit('.register_form', 'Register/ajax_register');
 	sendPostDataOnSubmit('.finish_kurs_form', 'Kurs/ajax_finish_kurs', true);
-	sendPostDataOnSubmit('.egzamin_form', 'Egzamin/ajax_finish_exam', true);
 	sendPostDataOnSubmit('.restart_exam_form', 'Egzamin/ajax_restart_exam', true);
 	sendPostDataOnSubmit('.forgotten_password_form', 'UserPassword/ajax_forgottenPassword', true);
 	sendPostDataOnSubmit('.change_password_form', 'UserPassword/ajax_changePassword', true);
@@ -216,5 +249,3 @@ $(function() {
 
   ga('create', 'UA-98113799-1', 'auto');
   ga('send', 'pageview');
-
-

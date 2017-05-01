@@ -90,7 +90,7 @@ class Egzamin extends MY_Controller
                 throw new Exception($try);
             }
 
-            echo '<h2>Potwierdzono ukończenie egzaminu.</h2><br>';
+            echo '[EXAM_FINISHED]';
         } catch (Exception $e) {
             echo '<h2>Potwierdzenie ukończenia egzaminu nie powiodło się:</h2><br>';
             echo $e->getMessage();
