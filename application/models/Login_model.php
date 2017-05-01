@@ -34,7 +34,5 @@ class Login_model extends MY_Model
     public function logout()
     {
         session_unset();
-        echo '<h2>Pomyślnie wylogowano.</h2><br>';
-        echo '<a href="'.base_url().'">Powrót do strony głównej</a><br>';
     }
 }

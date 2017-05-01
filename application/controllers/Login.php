@@ -46,5 +46,6 @@ class Login extends MY_Controller
     {
         $this->load->model('Login_model');
         $this->Login_model->logout();
+        echo "[LOGOUT_FINISHED]";
     }
 }

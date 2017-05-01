@@ -83,7 +83,33 @@ $(document).on("submit", '.egzamin_form', function(e) {
 		}
 	});
 });
-
+/*
+|--------------------------------------------------------------------------
+| Logout
+|--------------------------------------------------------------------------
+|
+*/
+$(document).on("submit", '.logout_form', function(e) {
+	e.preventDefault();
+	var data = $(this).serialize();
+	$.ajax({
+		url: baseUrl + 'Login/ajax_logout',
+		type: 'POST',
+		data: data,
+		success: function(serverResponse) {
+			if(serverResponse==='[LOGOUT_FINISHED]')
+			{
+				window.location.replace(baseUrl);
+			}
+			else{
+				showResponse(serverResponse);
+			}
+		},
+		error: function() {
+			showResponse('Błąd związany z wysyłaniem danych.<br>Sprawdź swoje połączenie internetowe.');
+		}
+	});
+});
 /*
 |--------------------------------------------------------------------------
 | Ranking
@@ -225,7 +251,6 @@ $(function() {
 		}
 	});
 	sendPostDataOnSubmit('.login_form', 'Login/ajax_login', true);
-	sendPostDataOnSubmit('.logout_form', 'Login/ajax_logout', true);
 	sendPostDataOnSubmit('.register_form', 'Register/ajax_register');
 	sendPostDataOnSubmit('.finish_kurs_form', 'Kurs/ajax_finish_kurs', true);
 	sendPostDataOnSubmit('.restart_exam_form', 'Egzamin/ajax_restart_exam', true);
