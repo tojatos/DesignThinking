@@ -41,7 +41,7 @@ class Egzamin extends MY_Controller
     {
         try {
             if (!$this->session->is_logged) {
-                throw new Exception('Musisz się zalogować aby ukończyć egzamin!');
+                throw new Exception("Musisz się <a href='http://mlodziratownicy.pl/Login'>zalogować</a> aby ukończyć egzamin!");
             }
             $id_kurs = $this->input->post('kurs_id');
             $username = $this->session->user_name;
