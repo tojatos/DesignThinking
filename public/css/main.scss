@@ -63,9 +63,11 @@ html {
             background-color: transparent;
             padding: 15px;
             color: #fff;
+            width: 100%;
+            line-height: 20px;
+            text-align: left;
         }
             .logout:hover{
-                color: #eee;
                 background-color: #3197cf;
             }
 

@@ -24,7 +24,7 @@
       <?php else: ?>
             <li>
               <form class="logout_form" method="post">
-                <a><input class="logout" type="submit" value="Wyloguj"></a>
+                <input class="logout" type="submit" value="Wyloguj">
               </form>
             </li>
           </ul>
