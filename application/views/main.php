@@ -10,7 +10,7 @@
 				<h1>Karta młodego ratownika</h1>
 		<?php if(!$this->session->is_logged): ?>
 					<p>W nagrodę po zdaniu wszystkich egzaminów można zdobyć kartę młodego ratownika:</p>
-					<img src="" alt="Zdjęcie karty młodego ratownika">
+					<img src="<?= site_url() ?>public/images/pdf.jpg" alt="Zdjęcie karty młodego ratownika">
 		<?php else: ?>
 			<?php if($finished_exams_number<5): ?>
 				<p>Ukończono <?= $finished_exams_number ?> / 5 egzaminów. Ukończ je wszystkie aby zdobyć kartę młodego ratownika!</p>
