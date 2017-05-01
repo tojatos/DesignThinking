@@ -63,7 +63,7 @@ class Kurs extends MY_Controller
     {
         try {
             if(!$this->session->is_logged)
-            throw new Exception("Aby ukończyć kurs musisz się <a href='http://mlodziratownicy.pl/Login'>zalogować!</a>");
+            throw new Exception("Aby ukończyć kurs musisz się <a href='".site_url('Login')."'>zalogować!</a>");
             $id_kurs = $this->input->post('kurs_id');
             $username = $this->session->user_name;
 
