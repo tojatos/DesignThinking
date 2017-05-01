@@ -17,8 +17,10 @@ class Egzamin extends MY_Controller
                 throw new Exception('Aby mieć dostęp do egzaminu musisz się <a href="'.site_url('Login').'">zalogować</a>!');
             }
             $view['mainNav'] = $this->loadMainNav();
+
             if ($id_egzamin == 0) {
-                $view['content'] = $this->loadContent('Egzamin/index');
+                $exam_results = $this->get_exam_results($user_id);
+                $view['content'] = $this->loadContent('Egzamin/index', ['exam_results' => $exam_results]);
             } else {
                 $has_finished_kurs = $this->Kurs_model->has_finihed_kurs(['id_kurs' => $id_egzamin, 'id_user' => $user_id]);
                 if (!$has_finished_kurs) {
@@ -36,6 +38,21 @@ class Egzamin extends MY_Controller
         } catch (Exception $e) {
             $this->showMessage($e->getMessage());
         }
+    }
+    private function get_exam_results($user_id)
+    {
+        $number_of_kurs = $this->Kurs_model->get_number_of_kurs();
+        $exam_results = [];
+        for ($i = 1; $i <= $number_of_kurs; ++$i) {
+            $user_kurs_data = [
+              'id_kurs' => $i,
+              'id_user' => $user_id,
+            ];
+            $exam_result = $this->Egzamin_model->get_exam_result($user_kurs_data);
+            $exam_results[$i] = $exam_result;
+        }
+
+        return $exam_results;
     }
     public function ajax_finish_exam()
     {
