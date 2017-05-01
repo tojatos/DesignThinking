@@ -6,4 +6,19 @@
 				<p>Możesz ukończyć kursy, a następnie sprawdzić się w egzaminach</p>
 				<p><a class="btn btn-primary btn-lg" href="<?= site_url('Kurs') ?>" role="button">Przejdź do kursów</a></p>
 		</div>
+		<div class="jumbotron">
+				<h1>Karta młodego ratownika</h1>
+		<?php if(!$this->session->is_logged): ?>
+					<p>W nagrodę po zdaniu wszystkich egzaminów można zdobyć kartę młodego ratownika:</p>
+					<img src="" alt="Zdjęcie karty młodego ratownika">
+		<?php else: ?>
+			<?php if($finished_exams_number<5): ?>
+				<p>Ukończono <?= $finished_exams_number ?> / 5 egzaminów. Ukończ je wszystkie aby zdobyć kartę młodego ratownika!</p>
+			<?php else: ?>
+						<form class="PDF_form" method="post">
+									<input type="submit" class="btn btn-primary btn-lg" value="Pobierz kartę młodego ratownika">
+						</form>
+			<?php endif; ?>
+		<?php endif; ?>
+		</div>
 </div>

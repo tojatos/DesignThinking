@@ -109,6 +109,7 @@ class Egzamin_model extends MY_Model
         'exam_id' => $exam_id,
       ];
     }
+
     public function verify_exams($user_id)
     {
         $query = $this->db->get_where(USER_KURS_TABLE, ['fk_user' => $user_id]);
@@ -121,6 +122,18 @@ class Egzamin_model extends MY_Model
               throw new Exception('Musisz zdać wszystkie egzaminy!');
           }
         }
+    }
+    public function get_finished_exams_number($user_id)
+    {
+      $finished_exams_number = 0;
+      $query = $this->db->get_where(USER_KURS_TABLE, ['fk_user' => $user_id]);
+      $exams = $query->result();
+      foreach ($exams as $exam) {
+        if ($exam->exam_result >= TRESHOLD) {
+            ++$finished_exams_number;
+        }
+      }
+      return $finished_exams_number;
     }
     public function get_recent_exam_finish_date($user_id)
     {
