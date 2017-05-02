@@ -22,7 +22,8 @@ html {
             color: #55a;
 
             &:hover {
-                text-decoration: underline;
+                text-decoration: none;
+                color: #aaa;
             }
         }
     }
@@ -249,10 +250,8 @@ b.pdk {
     justify-content: center;    
     text-align: center;
     font-size: 18px;
-    text-decoration: none !important; 
     color: #2086bf;
-    background-color: #4390df;
-    
+    background-color: #4390df;    
 
     .name_kurs{
         font-size: 36px;  

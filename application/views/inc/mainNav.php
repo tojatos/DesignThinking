@@ -18,10 +18,10 @@
       <li><a href="<?= site_url('Ranking')?>"class="<?= ($this->uri->segment(1)=="Ranking") ? "active" : ""?>">Ranking</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="<?= site_url('Opis')?>"class="<?= ($this->uri->segment(1)=="O projekcie") ? "active" : ""?>">O projekcie</a></li>
+      <li><a href="<?= site_url('About')?>"class="<?= ($this->uri->segment(1)=="About") ? "active" : ""?>">O projekcie</a></li>
       <?php if (!$this->session->is_logged): ?>
-        <li><a href="<?= site_url('Register')?>" class="<?= ($this->uri->segment(1)=="Register") ? "active" : ""?>">Zarejestruj się!</a></li>
-        <li><a href="<?= site_url('Login')?>" class="<?= ($this->uri->segment(1)=="Login") ? "active" : ""?>">Zaloguj się!</a></li>
+        <li><a href="<?= site_url('Register')?>" class="<?= ($this->uri->segment(1)=="Register") ? "active" : ""?>">Rejestracja</a></li>
+        <li><a href="<?= site_url('Login')?>" class="<?= ($this->uri->segment(1)=="Login") ? "active" : ""?>">Logowanie</a></li>
       <?php else: ?>
             <li>
               <form class="logout_form" method="post">

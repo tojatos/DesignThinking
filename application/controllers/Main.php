@@ -25,4 +25,10 @@ class Main extends MY_Controller
     {
         $this->showView('404');
     }
+    public function About()
+    {
+        $view['mainNav'] = $this->loadMainNav();
+        $view['content'] = $this->loadContent('About/index');
+        $this->showMainView($view);
+    }
 }

@@ -9,5 +9,6 @@ $route['Kurs/(:num)'] = 'Kurs/index/$1';
 $route['Egzamin/(:num)'] = 'Egzamin/index/$1';
 $route['User/(:num)'] = 'User/index/$1';
 $route['Verify/(:any)'] = 'Verify/index/$1';
+$route['About'] = 'Main/About';
 $route['ForgottenPassword'] = 'UserPassword/showForgottenPasswordForm';
 $route['ChangePassword/(:any)'] = 'UserPassword/showChangePasswordForm/$1';
