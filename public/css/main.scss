@@ -4,11 +4,8 @@
 
 html {
     position: relative;
-
     min-height: 100%;
-
     cursor: default;
-
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
 
@@ -18,7 +15,6 @@ html {
 
         a {
             text-decoration: none;
-            
             color: #55a;
 
             &:hover {
@@ -27,54 +23,59 @@ html {
             }
         }
     }
-        
+
     .navbar-default {
-        border-top-left-radius: 0px !important;
-        border-top-right-radius: 0px !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
         background-color: #2086bf !important;
         background-image: none;
         color: #fff;
         border: none;
         border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;  
+        border-bottom-right-radius: 5px;
+
         li > .active {
             color: #ccc;
-            background-color:  #59cde2;
+            background-color: #59cde2;
 
             &:hover {
                 color: #fff !important;
                 background-color: #61def3 !important;
             }
         }
-        .collapse{
-                background-color: #2086bf;    
+
+        .collapse {
+            background-color: #2086bf;
         }
     }
 
-    .navbar-default .navbar-nav>li>a {
-            color: #fff;
-             .navbar-default .navbar-nav>li>a:hover{
-                color: #eee;
-                background-color: #61def3;
-            }
-        }
-        .logout{
-            border: none;
-            background-color: transparent;
-            padding: 15px;
-            color: #fff;
-            width: 100%;
-            line-height: 20px;
-            text-align: left;
-        }
-            .logout:hover{
-                background-color: #3197cf;
-            }
+    .navbar-default .navbar-nav > li > a {
+        color: #fff;
 
-        .navbar-default .navbar-nav>li>a:hover{
+        .navbar-default .navbar-nav > li > a:hover {
             color: #eee;
-            background-color: #3197cf;
+            background-color: #61def3;
         }
+    }
+
+    .logout {
+        border: none;
+        background-color: transparent;
+        padding: 15px;
+        color: #fff;
+        width: 100%;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    .logout:hover {
+        background-color: #3197cf;
+    }
+
+    .navbar-default .navbar-nav > li > a:hover {
+        color: #eee;
+        background-color: #3197cf;
+    }
 
     .footer {
         position: absolute;
@@ -102,15 +103,12 @@ html {
         top: 15%;
         right: 0;
         left: 0;
-
         display: none;
-
         max-width: 50%;
         min-height: 200px;
         max-height: 70%;
         margin: 0 auto;
         padding: 15px 30px 60px;
-
         color: #000;
         border-radius: 5px;
         background: #eef;
@@ -140,9 +138,7 @@ html {
 
     .center-screen {
         display: flex;
-
         height: 95vh;
-
         align-items: center;
     }
 
@@ -155,18 +151,14 @@ html {
         z-index: 9999;
         top: 60px;
         right: 20px;
-
         display: none;
-
         padding: 10px;
-
         border: solid black 1px;
         background: #fff;
 
         a,
         input[type="submit"] {
             padding: 0;
-
             color: #141414;
             border: none;
             background: inherit;
@@ -186,6 +178,56 @@ html {
             margin: 0 5px;
         }
     }
+
+    .egzamin_form {
+        border: 2px solid black;
+        background: url("../images/bgegz.png");
+
+        .question {
+            padding: 40px;
+            text-align: center;
+            font-size: 24px;
+            .question_content {
+                padding: 5px;
+                text-align: center;
+                height: 100px;
+            }
+            .option {
+                text-align: left;
+                font-size: 18px;
+                padding: 10px 0;
+                label {
+                    width: 100%;
+                    display: inline-block;
+                    cursor: pointer;
+                    position: relative;
+                    font-weight: normal;
+                    padding: 10px 10px 10px 30px;
+                    input[type="radio"] {
+                      display: none;
+                    }
+                    .border{
+                      position: absolute;
+                      width: 100%;
+                      height: 100%;
+                      border: solid black 3px;
+                      top: 0;
+                      left: 0;
+                      transition: 0.5s;
+                      &:hover{
+                        opacity: 0.5;
+                      }
+                    }
+                    input[type="radio"]:checked ~ .border {
+                      opacity: 1;
+                    	border: 3px solid rgb(209, 20, 0);
+                    }
+                }
+            }
+        }
+
+
+    }
 }
 
 div.exam_ranking_circle {
@@ -201,9 +243,7 @@ div.exam_ranking_circle {
 
 span.exam_ranking_number {
     display: inline-block;
-
     vertical-align: middle;
-
     line-height: normal;
 }
 
@@ -217,7 +257,6 @@ span.exam_ranking_number {
     margin-right: 50px;
     margin-bottom: 100px;
     margin-left: 50px;
-
     text-align: center;
 
     .kurs_inner {
@@ -226,11 +265,12 @@ span.exam_ranking_number {
         margin-left: 50px;
     }
 }
+
 b.pdk {
     font-size: 28px;
 }
 
-.kurs_content{
+.kurs_content {
     font-size: 18px;
 }
 
@@ -238,7 +278,7 @@ b.pdk {
     margin: 0 30px;
 }
 
-.frame_kurs{
+.frame_kurs {
     margin-bottom: 30px;
     width: 300px;
     height: 300px;
@@ -247,71 +287,37 @@ b.pdk {
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
     text-align: center;
     font-size: 18px;
     color: #2086bf;
-    background-color: #4390df;    
+    background-color: #4390df;
 
-    .name_kurs{
-        font-size: 36px;  
-        color: #fff;   
+    .name_kurs {
+        font-size: 36px;
+        color: #fff;
     }
 }
 
-
-
-.egzamin_form{
-    border: 2px solid black;
-    background: url(../images/bgegz.png);
-  
-  .question {
-      padding: 40px;
-      text-align: center;
-      font-size: 24px;
-      
-  }
-
-    p.question{
-        padding: 10px;
-        text-align: center;
-    }
-
-  .option {
-    text-align: left;
-    font-size: 18px;
-    padding: 10px 0;
-  }
-
-    label {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    padding-left: 25px;
-    margin-left: 15px;
-    font-weight: normal;
-    }
-
-}
-
-.jumbotron{
+.jumbotron {
     background-color: #eee;
 }
 
-.info{
+.info {
     font-size: 12px;
     font-style: italic;
     text-align: center;
 }
 
-.status_t{
+.status_t {
     font-size: 18px;
     background-color: #60A917;
     color: #fff;
     padding: 10px;
     border-radius: 10px;
 }
-.status_f{
+
+.status_f {
     font-size: 18px;
     background-color: #CE352C;
     color: #fff;
