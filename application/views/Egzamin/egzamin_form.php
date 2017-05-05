@@ -18,7 +18,7 @@
 			<div class="option"><label><input type="radio" name="question_<?= $question->id_question ?>" value="<?= $letter ?>"><?= $answer ?><div class="border"></div></label></div>
 		<?php endforeach; ?>
 		<?php if($key!=0): ?>
-			<button type="button" class="prev btn btn-primary">Poprzednie pytanie</button>
+			<button type="button" class="prev btn">Poprzednie pytanie</button>
 		<?php endif; ?>
 		<?php if($key!=$last): ?>
 			<button type="button" class="next btn btn-primary">Następne pytanie</button>

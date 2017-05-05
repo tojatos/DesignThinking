@@ -182,20 +182,22 @@ html {
     .egzamin_form {
         border: 2px solid black;
         background: url("../images/bgegz.png");
+        
 
         .question {
             padding: 40px;
             text-align: center;
             font-size: 24px;
+            
             .question_content {
                 padding: 5px;
                 text-align: center;
-                height: 100px;
             }
             .option {
                 text-align: left;
                 font-size: 18px;
                 padding: 10px 0;
+                
                 label {
                     width: 100%;
                     display: inline-block;
@@ -207,20 +209,25 @@ html {
                       display: none;
                     }
                     .border{
-                      position: absolute;
-                      width: 100%;
-                      height: 100%;
-                      border: solid black 3px;
-                      top: 0;
-                      left: 0;
-                      transition: 0.5s;
-                      &:hover{
-                        opacity: 0.5;
-                      }
+                        
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        border: solid black 3px;
+                        top: 0;
+                        left: 0;
+                        transition: 0.5s;
+                        &:hover{
+                            opacity: 0.6;
+                        }
                     }
                     input[type="radio"]:checked ~ .border {
                       opacity: 1;
-                    	border: 3px solid rgb(209, 20, 0);
+                    	border: 3px solid #2086bf;
+                        &:hover{
+                            opacity: 0.5;
+                        }
+
                     }
                 }
             }
