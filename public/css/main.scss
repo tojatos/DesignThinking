@@ -331,3 +331,8 @@ b.pdk {
     padding: 10px;
     border-radius: 10px;
 }
+
+.btn-lg, .btn-group-lg>.btn{
+    width: 70%;
+    white-space: normal;
+}
