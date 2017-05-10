@@ -7,15 +7,15 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="<?= site_url() ?>"><img src="<?= site_url() ?>public/images/logo.png" height="40px" width='200px'></a>
+    <a class="navbar-brand" href="<?= site_url() ?>"><img src="<?= site_url() ?>public/images/logo.png" height="40px" width='200px' alt=""/></a>
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-left">
-      <li><a href="<?= site_url('Kurs')?>"class="<?= ($this->uri->segment(1)=="Kurs") ? "active" : ""?>">Kursy</a></li>
+      <li><a href="<?= site_url('Kurs')?>" class="<?= ($this->uri->segment(1)=="Kurs") ? "active" : ""?>">Kursy</a></li>
       <?php if ($this->session->is_logged): ?>
-        <li><a href="<?= site_url('Egzamin')?>"class="<?= ($this->uri->segment(1)=="Egzamin") ? "active" : ""?>">Egzaminy</a></li>
+        <li><a href="<?= site_url('Egzamin')?>" class="<?= ($this->uri->segment(1)=="Egzamin") ? "active" : ""?>">Egzaminy</a></li>
       <?php endif; ?>
-      <li><a href="<?= site_url('Ranking')?>"class="<?= ($this->uri->segment(1)=="Ranking") ? "active" : ""?>">Ranking</a></li>
+      <li><a href="<?= site_url('Ranking')?>" class="<?= ($this->uri->segment(1)=="Ranking") ? "active" : ""?>">Ranking</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="<?= site_url('About')?>"class="<?= ($this->uri->segment(1)=="About") ? "active" : ""?>">O projekcie</a></li>
