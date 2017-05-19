@@ -20,12 +20,7 @@ class Ranking_model extends MY_Model
     }
     private function sort_by_exam_points(&$general_data)
     {
-      function cmp($a, $b)
-      {
-          return strcmp($a->exam_result_sum, $b->exam_result_sum);
-      }
-
-      usort($general_data, 'cmp');
+      usort($general_data, function($a, $b) { return $b->exam_result_sum - $a->exam_result_sum; });
     }
     private function gather_general_data()
     {
