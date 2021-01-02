@@ -1,0 +1,33 @@
+version: '2'
+services:
+  myapp:
+    build: .
+    ports:
+      - '8113:8000'
+    volumes:
+      - '.:/app'
+    depends_on:
+      - mariadb
+    hostname: krzysztofruczkowski.pl #needed for sendmail
+  mariadb:
+    image: 'docker.io/bitnami/mariadb:10.3-debian-10'
+    expose:
+      - '3306'
+    volumes:
+      - ./database/design_thinking.sql:/docker-entrypoint-initdb.d/design_thinking.sql
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=phpmyadmin
+      - MARIADB_PASSWORD=123qwe
+      - MARIADB_DATABASE=design_thinking
+  #phpmyadmin:
+  #  image: phpmyadmin/phpmyadmin:4.6.4-1
+  #  ports:
+  #    - "8888:8888"
+  #  links:
+  #    - mariadb
+  #  environment:
+  #    - PMA_ARBITRARY=1
+  #    - PMA_HOST=mariadb
+  #    - PMA_USER=phpmyadmin
+  #    - PMA_PASSWORD=123qwe
